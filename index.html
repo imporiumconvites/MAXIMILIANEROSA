@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Niuslene & Ricardo — Casamento em 26 de setembro de 2026, Villa Cheberle, Lauro de Freitas/BA." />
+<meta name="theme-color" content="#f4efe7" />
+<title>Niuslene &amp; Ricardo</title>
+<link rel="icon" href="assets/geral/favicon.png" type="image/png" />
+<link rel="apple-touch-icon" href="assets/geral/favicon.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+
+<style>
+  /* ============================================================
+     FONTE LOCAL — Velour Light (arquivo licenciado do cliente)
+     ============================================================ */
+  @font-face {
+    font-family: 'Velour';
+    src: url('assets/tipografia/velour-light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Tangier';
+    src: url('assets/tipografia/tangierregular-1jzpl.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* ============================================================
+     DESIGN TOKENS
+     Paleta e marca oficiais da Identidade Visual (Imporium) —
+     ver "Design System.txt" para uso de cada ativo.
+     ============================================================ */
+  :root {
+    --color-white: #ffffff;
+    --color-off-white: #f4efe7;
+
+    --color-sage: #818159;
+    --color-sage-dark: #676032;
+    --color-gold: #b69b58;
+    --color-gold-dark: #97814a;
+    --color-champagne: #d1b995;
+
+    --color-ink: #3a352d;
+    --color-stone: #6e6a5c;
+    --color-line: #e7dfd0;
+
+    --font-display: 'Tangerine', cursive;
+    --font-text: 'Cormorant Garamond', serif;
+    --font-body: 'Velour', 'Cormorant Garamond', serif;
+
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 32px;
+    --space-5: 48px;
+    --space-6: 64px;
+    --space-7: 96px;
+    --space-8: 128px;
+
+    --radius-btn: 4px;
+    --radius-card: 8px;
+
+    --shadow-soft: 0 4px 24px rgba(61, 54, 43, 0.06);
+    --shadow-hover: 0 8px 32px rgba(61, 54, 43, 0.10);
+
+    --content-width: 680px;
+    --max-width: 1200px;
+
+    --t-slow: 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+    --t-med: 0.3s ease;
+
+    --header-h: 84px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-h);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: clamp(17px, 4.5vw, 20px);
+    line-height: 1.75;
+    color: var(--color-ink);
+    background-color: var(--color-off-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  img { max-width: 100%; display: block; }
+
+  a { color: inherit; text-decoration: none; }
+
+  h1, h2, h3, p { margin: 0; }
+
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--color-gold);
+    color: var(--color-white);
+    padding: var(--space-2) var(--space-3);
+    z-index: 999;
+    border-radius: var(--radius-btn);
+  }
+  .skip-link:focus { left: var(--space-2); top: var(--space-2); }
+
+  .visually-hidden {
+    position: absolute !important;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+  }
+
+  .container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-3);
+  }
+
+  .content-narrow {
+    max-width: var(--content-width);
+    margin: 0 auto;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    font-family: var(--font-text);
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--color-gold-dark);
+    margin-bottom: var(--space-2);
+  }
+
+  .display {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .h1 {
+    font-family: var(--font-text);
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(30px, 6vw, 46px);
+    color: var(--color-ink);
+  }
+
+  .h2 {
+    font-family: var(--font-text);
+    font-weight: 500;
+    font-size: clamp(32px, 5.5vw, 44px);
+    letter-spacing: 0.5px;
+    color: var(--color-ink);
+  }
+
+  .h3 {
+    font-family: var(--font-text);
+    font-weight: 400;
+    font-size: clamp(22px, 4vw, 27px);
+    color: var(--color-ink);
+  }
+
+  .lede {
+    font-size: clamp(18px, 3vw, 21px);
+    color: var(--color-stone);
+    font-style: italic;
+  }
+
+  .section {
+    padding: var(--space-7) 0;
+  }
+  @media (min-width: 768px) {
+    .section { padding: var(--space-8) 0; }
+  }
+
+  .section--alt { background-color: var(--color-white); }
+
+  .section-head {
+    text-align: center;
+    max-width: 620px;
+    margin: 0 auto var(--space-6);
+  }
+
+  .divider {
+    width: 64px;
+    height: 1px;
+    background: var(--color-gold);
+    margin: var(--space-3) auto;
+    opacity: 0.7;
+  }
+
+  .ornament-pombas {
+    display: block;
+    width: 72px;
+    height: auto;
+    margin: 0 auto var(--space-3);
+  }
+
+  /* ============================================================
+     REVEAL ON SCROLL
+     ============================================================ */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity var(--t-slow), transform var(--t-slow);
+  }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* ============================================================
+     BUTTONS
+     ============================================================ */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-1);
+    font-family: var(--font-text);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 16px 36px;
+    border-radius: var(--radius-btn);
+    border: 1px solid var(--color-gold);
+    cursor: pointer;
+    transition: background-color var(--t-med), color var(--t-med), border-color var(--t-med);
+  }
+
+  .btn-primary {
+    background-color: var(--color-gold);
+    color: var(--color-white);
+  }
+  .btn-primary:hover { background-color: var(--color-gold-dark); border-color: var(--color-gold-dark); }
+
+  .btn-outline {
+    background-color: transparent;
+    color: var(--color-gold-dark);
+  }
+  .btn-outline:hover { background-color: var(--color-gold); color: var(--color-white); }
+
+  .btn-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    justify-content: center;
+  }
+
+  /* ============================================================
+     HEADER / NAV
+     ============================================================ */
+  .site-header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--header-h);
+    z-index: 80;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    transition: background-color var(--t-med), box-shadow var(--t-med), height var(--t-med);
+  }
+
+  .site-header.is-scrolled {
+    background-color: rgba(249, 247, 241, 0.94);
+    box-shadow: var(--shadow-soft);
+    height: 72px;
+    backdrop-filter: blur(6px);
+  }
+
+  .site-header .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .brand { display: inline-flex; align-items: center; line-height: 1; }
+  .brand img {
+    height: 44px;
+    width: auto;
+    display: block;
+    transition: height var(--t-med);
+  }
+  .site-header.is-scrolled .brand img { height: 36px; }
+
+  .nav-desktop { display: none; }
+  @media (min-width: 1024px) {
+    .nav-desktop {
+      display: flex;
+      gap: var(--space-4);
+      list-style: none;
+      margin: 0; padding: 0;
+    }
+    .nav-desktop a {
+      font-size: 11.5px;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+      color: var(--color-ink);
+      padding-bottom: 4px;
+      border-bottom: 1px solid transparent;
+      transition: color var(--t-med), border-color var(--t-med);
+    }
+    .nav-desktop a:hover,
+    .nav-desktop a.is-active {
+      color: var(--color-gold-dark);
+      border-color: var(--color-gold);
+    }
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px; height: 44px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--color-ink);
+    position: absolute;
+    right: var(--space-3);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  @media (min-width: 1024px) { .nav-toggle { display: none; } }
+
+  .nav-toggle svg { width: 26px; height: 26px; }
+  .icon-close { display: none; }
+  .nav-toggle[aria-expanded="true"] .icon-open { display: none; }
+  .nav-toggle[aria-expanded="true"] .icon-close { display: block; }
+
+  .nav-overlay {
+    position: fixed; inset: 0;
+    background: rgba(58, 53, 45, 0.45);
+    opacity: 0; visibility: hidden;
+    transition: opacity var(--t-med);
+    z-index: 85;
+  }
+  .nav-overlay.is-open { opacity: 1; visibility: visible; }
+
+  .nav-panel {
+    position: fixed;
+    top: 0; right: 0;
+    height: 100%;
+    width: min(320px, 84vw);
+    background: var(--color-off-white);
+    z-index: 90;
+    transform: translateX(100%);
+    transition: transform var(--t-slow);
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-4);
+    box-shadow: -8px 0 32px rgba(0,0,0,0.08);
+  }
+  .nav-panel.is-open { transform: translateX(0); }
+
+  .nav-panel-close {
+    align-self: flex-end;
+    background: none; border: none; cursor: pointer;
+    color: var(--color-ink);
+    width: 40px; height: 40px;
+  }
+
+  .nav-mobile {
+    list-style: none;
+    margin: var(--space-4) 0 0; padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .nav-mobile a {
+    font-family: var(--font-text);
+    font-size: 22px;
+    color: var(--color-ink);
+  }
+  .nav-mobile a:hover,
+  .nav-mobile a.is-active { color: var(--color-gold-dark); }
+
+  @media (min-width: 1024px) {
+    .nav-toggle, .nav-overlay, .nav-panel { display: none; }
+  }
+
+  /* ============================================================
+     HERO
+     ============================================================ */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(ellipse at 50% 32%, #fffdf8 0%, var(--color-off-white) 68%);
+    color: var(--color-ink);
+    text-align: center;
+    overflow: hidden;
+    padding: calc(var(--header-h) + var(--space-5)) 0 var(--space-6);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('assets/geral/estampa.png');
+    background-size: 420px 420px;
+    background-repeat: repeat;
+    opacity: 0.07;
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 var(--space-3);
+    max-width: 720px;
+  }
+
+  .hero-brasao {
+    width: clamp(104px, 16vw, 160px);
+    height: auto;
+    margin: 0 auto var(--space-3);
+  }
+
+  .hero-assinatura {
+    width: clamp(240px, 52vw, 500px);
+    height: auto;
+    margin: 0 auto var(--space-3);
+  }
+
+  .hero-date {
+    font-size: 17px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-gold-dark);
+    margin-bottom: var(--space-2);
+  }
+
+  .hero-venue {
+    font-family: var(--font-text);
+    font-style: italic;
+    font-size: clamp(19px, 2.8vw, 23px);
+    color: var(--color-ink);
+  }
+
+  .hero-welcome {
+    max-width: 560px;
+    margin: var(--space-5) auto 0;
+    font-size: clamp(15px, 2.4vw, 18px);
+  }
+
+  /* ============================================================
+     COUNTDOWN
+     ============================================================ */
+  .countdown-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  @media (min-width: 480px) {
+    .countdown-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  .countdown-cell {
+    text-align: center;
+    padding: var(--space-3) var(--space-1);
+    border-top: 1px solid var(--color-line);
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .countdown-num {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: clamp(38px, 7vw, 56px);
+    color: var(--color-gold-dark);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .countdown-label {
+    display: block;
+    margin-top: 4px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-stone);
+  }
+
+  /* ============================================================
+     STORY / NOSSA HISTÓRIA
+     ============================================================ */
+  .story-grid {
+    display: grid;
+    gap: var(--space-5);
+    align-items: center;
+  }
+  @media (min-width: 900px) {
+    .story-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-7);
+    }
+    .story-grid--reverse .story-media { order: 2; }
+  }
+
+  .story-media img {
+    width: 100%;
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .story-media--floral {
+    display: flex;
+    justify-content: center;
+  }
+  .story-media--floral img {
+    width: auto;
+    max-width: 220px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .story-text p + p { margin-top: var(--space-3); }
+  #historia .story-text { text-align: center; }
+  #historia .story-text p {
+    font-size: clamp(15px, 2.2vw, 17px);
+    line-height: 1.7;
+  }
+  .story-floral {
+    width: auto;
+    height: clamp(110px, 18vw, 150px);
+    margin: 0 auto var(--space-4);
+  }
+
+  .timeline {
+    margin-top: var(--space-6);
+    display: grid;
+    gap: var(--space-4);
+  }
+  @media (min-width: 700px) {
+    .timeline {
+      grid-template-columns: repeat(3, 1fr);
+      position: relative;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 8%;
+      right: 8%;
+      height: 1px;
+      background: var(--color-line);
+    }
+  }
+
+  .timeline-item { text-align: center; position: relative; }
+  .timeline-dot {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: var(--color-off-white);
+    border: 1px solid var(--color-gold);
+    margin: 0 auto var(--space-2);
+    position: relative;
+    z-index: 1;
+  }
+  .timeline-item h3 { margin-bottom: 4px; }
+  .timeline-item p { color: var(--color-stone); font-size: 17px; }
+
+  /* ============================================================
+     O GRANDE DIA — CARDS
+     ============================================================ */
+  .venue-showcase {
+    text-align: center;
+    margin-bottom: var(--space-6);
+  }
+  .venue-showcase-img {
+    width: clamp(340px, 58vw, 640px);
+    height: auto;
+    margin: 0 auto var(--space-3);
+  }
+  .venue-showcase-img--below {
+    margin: var(--space-4) auto 0;
+  }
+  .venue-showcase-name {
+    font-family: var(--font-text);
+    font-style: italic;
+    font-size: clamp(22px, 3.5vw, 28px);
+    color: var(--color-ink);
+    margin-bottom: 4px;
+  }
+  .venue-showcase-address {
+    font-size: 17px;
+    color: var(--color-stone);
+  }
+
+  .info-cards {
+    display: grid;
+    gap: var(--space-3);
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 600px) {
+    .info-cards { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 1024px) {
+    .info-cards--four { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  .card {
+    background: var(--color-white);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    padding: var(--space-4) var(--space-3);
+    text-align: center;
+    transition: transform var(--t-med), box-shadow var(--t-med);
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+
+  .card-icon {
+    width: 44px; height: 44px;
+    margin: 0 auto var(--space-2);
+    color: var(--color-gold);
+  }
+  .card-icon svg { width: 100%; height: 100%; }
+
+  .card h3 { margin-bottom: var(--space-1); }
+  .card p { color: var(--color-stone); font-size: 17px; }
+
+  .note {
+    text-align: center;
+    font-style: italic;
+    color: var(--color-stone);
+    max-width: 560px;
+    margin: var(--space-5) auto 0;
+    font-size: 17px;
+  }
+
+  /* ============================================================
+     INFORMAÇÕES IMPORTANTES
+     ============================================================ */
+  .info-block {
+    background: var(--color-white);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    padding: var(--space-4);
+  }
+  .info-icon {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    margin-bottom: var(--space-2);
+  }
+  #traje .info-block {
+    background: var(--color-white);
+    padding-top: 0;
+    overflow: hidden;
+  }
+  #traje .label {
+    font-size: 17px;
+    letter-spacing: 2px;
+  }
+  #local .section-head { margin-bottom: var(--space-3); }
+  .dc-illus {
+    display: block;
+    width: calc(100% + 2 * var(--space-4));
+    height: auto;
+    max-height: clamp(360px, 46vw, 480px);
+    object-fit: contain;
+    margin: 0 calc(-1 * var(--space-4)) var(--space-3);
+  }
+  .info-block h3 { margin-bottom: var(--space-2); }
+  .info-block p { color: var(--color-ink); font-size: 17px; }
+  .info-block p + p { margin-top: var(--space-2); }
+  .info-block .label {
+    display: block;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-gold-dark);
+    margin-bottom: 4px;
+  }
+
+  .info-grid {
+    display: grid;
+    gap: var(--space-3);
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 700px) {
+    .info-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 900px) {
+    .info-grid--three { grid-template-columns: repeat(3, 1fr); }
+  }
+  .info-grid--three .info-block h3 {
+    font-size: clamp(16px, 1.9vw, 20px);
+    white-space: nowrap;
+  }
+
+  /* ============================================================
+     GALERIA
+     ============================================================ */
+  .gallery-note {
+    text-align: center;
+    color: var(--color-stone);
+    font-style: italic;
+    font-size: 17px;
+    margin-bottom: var(--space-5);
+  }
+
+  .gallery-carousel {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .gallery-track {
+    display: flex;
+    gap: var(--space-2);
+    flex: 1;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding: 4px 0 12px;
+    scrollbar-width: none;
+  }
+  .gallery-track::-webkit-scrollbar { display: none; }
+
+  .gallery-slide {
+    flex: 0 0 auto;
+    width: clamp(150px, 24vw, 260px);
+    aspect-ratio: 1 / 1;
+    scroll-snap-align: start;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    cursor: pointer;
+    background: var(--color-line);
+  }
+
+  .gallery-slide img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  .gallery-slide:hover img { transform: scale(1.08); }
+
+  .gallery-arrow {
+    flex: 0 0 auto;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--color-gold);
+    background: var(--color-white);
+    color: var(--color-gold-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color var(--t-med), color var(--t-med);
+  }
+  .gallery-arrow:hover { background: var(--color-gold); color: var(--color-white); }
+  .gallery-arrow svg { width: 18px; height: 18px; }
+
+  .gallery-empty {
+    text-align: center;
+    padding: var(--space-6) var(--space-3);
+    color: var(--color-stone);
+    font-style: italic;
+    border: 1px dashed var(--color-line);
+    border-radius: var(--radius-card);
+  }
+
+  .lightbox {
+    position: fixed; inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(28, 25, 19, 0.94);
+    opacity: 0; visibility: hidden;
+    transition: opacity var(--t-med);
+  }
+  .lightbox.is-open { opacity: 1; visibility: visible; }
+
+  .lightbox-figure { max-width: 92vw; max-height: 82vh; text-align: center; }
+  .lightbox-figure img {
+    max-width: 92vw; max-height: 78vh;
+    object-fit: contain;
+    margin: 0 auto;
+    border-radius: 4px;
+    transform: scale(0.97);
+    opacity: 0;
+    transition: transform var(--t-med), opacity var(--t-med);
+  }
+  .lightbox.is-open .lightbox-figure img { transform: scale(1); opacity: 1; }
+
+  .lightbox-counter {
+    margin-top: var(--space-2);
+    color: rgba(255,255,255,0.8);
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+
+  .lightbox-close,
+  .lightbox-prev,
+  .lightbox-next {
+    position: absolute;
+    background: transparent;
+    border: none;
+    color: var(--color-white);
+    cursor: pointer;
+    width: 48px; height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .lightbox-close svg, .lightbox-prev svg, .lightbox-next svg { width: 26px; height: 26px; }
+  .lightbox-close { top: var(--space-2); right: var(--space-2); }
+  .lightbox-prev { left: var(--space-2); top: 50%; transform: translateY(-50%); }
+  .lightbox-next { right: var(--space-2); top: 50%; transform: translateY(-50%); }
+
+  /* ============================================================
+     PRESENTES
+     ============================================================ */
+  .gift-text {
+    text-align: center;
+    margin-bottom: var(--space-4);
+    max-width: 600px;
+  }
+  .gift-text p {
+    font-size: clamp(12.5px, 1.8vw, 14.5px);
+    line-height: 1.65;
+    text-wrap: pretty;
+  }
+  .gift-text p.lede {
+    font-size: clamp(16px, 2.6vw, 19px);
+    text-wrap: balance;
+  }
+  .gift-icon { width: 52px; height: 52px; margin-bottom: var(--space-3); }
+  .rsvp-icon { width: 60px; height: 60px; object-fit: contain; margin: 0 auto var(--space-3); }
+
+  .gift-cards {
+    display: grid;
+    gap: var(--space-3);
+    grid-template-columns: 1fr;
+    margin-top: var(--space-5);
+  }
+  @media (min-width: 768px) {
+    .gift-cards { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .gift-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    padding: var(--space-4) var(--space-3);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform var(--t-med), box-shadow var(--t-med);
+  }
+  .gift-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+
+  .gift-card-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    border: 1px solid var(--color-champagne);
+    background: var(--color-off-white);
+    color: var(--color-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-3);
+  }
+  .gift-card-icon svg { width: 34px; height: 34px; }
+
+  .gift-card h3 { margin-bottom: var(--space-1); }
+  .gift-card > p { color: var(--color-stone); font-size: 17px; }
+
+  .gift-card-foot { margin-top: auto; padding-top: var(--space-4); width: 100%; }
+  .gift-card-foot .btn { width: 100%; }
+
+  .gift-bank {
+    margin-top: var(--space-3);
+    background: var(--color-off-white);
+    border-radius: var(--radius-btn);
+    padding: var(--space-3);
+    width: 100%;
+    text-align: left;
+  }
+  .gift-bank p {
+    font-size: 15px;
+    color: var(--color-ink);
+    line-height: 1.6;
+    word-break: break-word;
+  }
+  .gift-bank p span {
+    color: var(--color-stone);
+    font-weight: 500;
+  }
+
+  .gift-closing {
+    text-align: center;
+    font-family: 'Tangier', var(--font-display);
+    font-weight: 400;
+    font-size: clamp(22px, 4vw, 32px);
+    line-height: 1.2;
+    color: var(--color-gold-dark);
+    margin-top: var(--space-6);
+  }
+
+  /* ============================================================
+     FOOTER
+     ============================================================ */
+  .site-footer {
+    background: var(--color-white);
+    border-top: 1px solid var(--color-line);
+    padding: var(--space-6) 0 var(--space-4);
+    text-align: center;
+  }
+  .footer-monograma {
+    width: 40px;
+    height: auto;
+    margin: 0 auto var(--space-2);
+  }
+  .footer-assinatura {
+    width: clamp(180px, 30vw, 260px);
+    height: auto;
+    margin: 0 auto;
+  }
+  .footer-date {
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-stone);
+    margin-top: 4px;
+  }
+  .footer-message {
+    margin-top: var(--space-3);
+    font-style: italic;
+    color: var(--color-ink);
+  }
+  .footer-credit {
+    margin-top: var(--space-5);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-line);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+  }
+  .footer-credit span {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-stone);
+  }
+  .footer-credit-logo {
+    height: 26px;
+    width: auto;
+  }
+
+  .back-to-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: var(--space-4);
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-gold-dark);
+    border-bottom: 1px solid var(--color-gold);
+    padding-bottom: 2px;
+  }
+
+  /* ============================================================
+     REFINAMENTOS RESPONSIVOS
+     Ajustes finos de leitura, espaçamento e áreas de toque para
+     tablet e celular — preservam a estética e a identidade do
+     desktop (paleta, tipografia, proporções).
+     ============================================================ */
+
+  /* Tablet (até 1023px): respiro entre colunas um pouco menor */
+  @media (max-width: 1023px) {
+    .story-grid { gap: var(--space-5); }
+  }
+
+  /* Celular (até 600px) */
+  @media (max-width: 600px) {
+    /* Ritmo vertical mais compacto entre as seções */
+    .section { padding: var(--space-6) 0; }
+    .section-head { margin-bottom: var(--space-5); }
+
+    /* Botões: área de toque confortável e largura cheia */
+    .btn { padding: 15px 26px; }
+    .btn-row .btn,
+    .info-block .btn { width: 100%; max-width: 340px; }
+
+    /* Galeria: slides maiores, melhores para o toque */
+    .gallery-slide { width: clamp(180px, 62vw, 240px); }
+
+    /* Aquarela do local com um pouco mais de presença sem cortar */
+    .venue-showcase-img { width: min(94vw, 460px); }
+
+    /* Dados bancários: e-mail quebra de forma limpa */
+    .gift-bank p { overflow-wrap: anywhere; }
+  }
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Pular para o conteúdo</a>
+
+<header class="site-header" id="site-header">
+  <div class="container">
+    <nav aria-label="Navegação principal">
+      <ul class="nav-desktop">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#local">Local da Cerimônia</a></li>
+        <li><a href="#historia">Nossa História</a></li>
+        <li><a href="#rsvp">Confirmar Presença</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#traje">Dress Code</a></li>
+        <li><a href="#presentes">Presentes</a></li>
+        <li><a href="#informacoes">Informações Importantes</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-panel" aria-label="Abrir menu">
+      <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="nav-overlay" id="nav-overlay"></div>
+<div class="nav-panel" id="nav-panel" aria-hidden="true">
+  <button class="nav-panel-close" id="nav-panel-close" aria-label="Fechar menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+  </button>
+  <ul class="nav-mobile">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#local">Local da Cerimônia</a></li>
+    <li><a href="#historia">Nossa História</a></li>
+    <li><a href="#rsvp">Confirmar Presença</a></li>
+    <li><a href="#galeria">Galeria</a></li>
+    <li><a href="#traje">Dress Code</a></li>
+    <li><a href="#presentes">Presentes</a></li>
+    <li><a href="#informacoes">Informações Importantes</a></li>
+  </ul>
+</div>
+
+<main id="main">
+
+  <!-- ============ HOME / CAPA ============ -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <img src="assets/geral/brasao.png" alt="" aria-hidden="true" class="hero-brasao" />
+      <h1><img src="assets/geral/assinatura.png" alt="Niuslene e Ricardo" class="hero-assinatura" /></h1>
+      <p class="hero-date">26 de setembro de 2026 &ndash; 15h30</p>
+      <p class="hero-welcome lede">Criamos este espaço para compartilhar com vocês os detalhes do nosso grande dia. Aqui reunimos um pouco da nossa história, as informações da celebração e tudo o que preparamos com carinho para receber cada um de vocês.</p>
+    </div>
+  </section>
+
+  <!-- ============ LOCAL DA CERIMÔNIA ============ -->
+  <section class="section section--alt" id="local">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Local da cerimônia</span>
+      </div>
+
+      <div class="venue-showcase reveal">
+        <img src="assets/geral/aquarela-villa.png" alt="Ilustração em aquarela da Villa Cheberle" class="venue-showcase-img" />
+        <p class="venue-showcase-name">Villa Cheberle</p>
+        <p class="venue-showcase-address">Rua 15 de Janeiro, 431, Recreio Ipitanga, Lauro de Freitas/BA</p>
+      </div>
+
+      <div class="btn-row reveal">
+        <!-- EDITAR: link do Google Maps já aponta para o endereço informado; ajustar se necessário -->
+        <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=Rua+15+de+Janeiro%2C+431%2C+Recreio+Ipitanga%2C+Lauro+de+Freitas%2FBA" target="_blank" rel="noopener">Como chegar</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTAGEM REGRESSIVA ============ -->
+  <section class="section" id="contagem">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Contagem regressiva</span>
+      </div>
+      <div class="countdown-grid reveal">
+        <div class="countdown-cell">
+          <span class="countdown-num" id="cd-days">00</span>
+          <span class="countdown-label">Dias</span>
+        </div>
+        <div class="countdown-cell">
+          <span class="countdown-num" id="cd-hours">00</span>
+          <span class="countdown-label">Horas</span>
+        </div>
+        <div class="countdown-cell">
+          <span class="countdown-num" id="cd-minutes">00</span>
+          <span class="countdown-label">Minutos</span>
+        </div>
+        <div class="countdown-cell">
+          <span class="countdown-num" id="cd-seconds">00</span>
+          <span class="countdown-label">Segundos</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NOSSA HISTÓRIA ============ -->
+  <section class="section section--alt" id="historia">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Nossa história</span>
+        <h2 class="h2">Nossa História</h2>
+      </div>
+
+      <div class="content-narrow story-text reveal">
+        <img src="assets/geral/floral-calla.png" alt="Ilustração de copo-de-leite, elemento da identidade visual" class="story-floral" loading="lazy" />
+        <p>Quem nos vê hoje, prontos para dar o passo mais importante das nossas vidas, talvez não imagine que tudo começou de forma despretensiosa, nos corredores do IFBA. Ali, entre cadernos e conversas de estudantes, uma sintonia imediata nasceu. Mas foi ao descobrirmos que compartilhávamos da mesma fé que entendemos que o nosso encontro não era um mero acaso: era propósito.</p>
+        <p>Começamos a nossa história com o coração cheio de sonhos e construímos cada pequeno degrau do zero, com o suor do nosso esforço e muita renúncia. Olhando para trás, o nosso maior orgulho é lembrar que o nosso alicerce foi feito de simplicidade. Naquela época, o nosso maior tesouro era apenas a companhia um do outro e a certeza de que nenhum caminho seria difícil demais se fôssemos juntos.</p>
+        <p>Vibramos e crescemos com cada passo dado: as primeiras oportunidades profissionais que se abriram, o orgulho das conquistas acadêmicas, as formaturas e cada barreira que superamos para crescer na carreira. Fomos, desde o início, o maior torcedor um do outro, dividindo rotinas, desafios e um amadurecimento que só o tempo — com paciência e amor — é capaz de lapidar.</p>
+        <p>A nossa caminhada com Deus também viveu suas estações, mas o Senhor sempre foi o nosso farol, nos sustentando com Sua fidelidade e providenciando cada vitória. Nada nos foi dado de mão beijada. Cada conquista nossa carrega a marca da nossa persistência, o apoio incansável de quem esteve conosco desde o primeiro dia torcendo por nós, e as bênçãos eternas daqueles familiares que, mesmo na memória, continuam aquecendo o nosso coração.</p>
+        <p>Descobrimos que o amor verdadeiro não é um sentimento estático, mas a decisão diária e corajosa de escolher a mesma pessoa todos os dias. Aprendemos a proteger o nosso “nós”, a respeitar quem somos individualmente e a nos orgulhar da nossa evolução. Hoje, o nosso peito transborda de gratidão a Deus por ter cuidado de cada detalhe da nossa história.</p>
+        <p>Por fim, guardamos no coração a certeza de que tudo tem o seu tempo determinado por Deus. Entendemos que cada ano vivido, cada espera e cada aprendizado foram caminhos necessários para nos preparar para o agora, no momento exato em que o Senhor alinhou as nossas vidas com o propósito d’Ele. Estamos prontos, com o coração vibrando de alegria, para iniciar o capítulo mais lindo das nossas vidas e celebrar esse amor ao lado de vocês!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONFIRMAÇÃO DE PRESENÇA (RSVP) ============ -->
+  <section class="section" id="rsvp">
+    <div class="container">
+      <div class="content-narrow reveal" style="text-align:center;">
+        <img src="assets/icones/rsvp.png" alt="" aria-hidden="true" class="rsvp-icon" />
+        <span class="eyebrow">Confirmação de presença</span>
+        <h2 class="h2">Confirmação de Presença</h2>
+        <p class="lede" style="margin-top:16px;">Pedimos a gentileza de confirmarem sua presença aqui no site até o dia <strong>10/09/2026</strong>. A confirmação é indispensável para o controle da nossa lista de convidados na portaria. Contamos com vocês!</p>
+      </div>
+      <div class="btn-row reveal" style="margin-top:var(--space-5);">
+        <!-- EDITAR: substituir pelo link/formulário real de confirmação de presença -->
+        <a class="btn btn-primary" href="#">Confirmar presença</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALERIA ============ -->
+  <section class="section section--alt" id="galeria">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Galeria</span>
+        <h2 class="h2">Nossos Momentos</h2>
+      </div>
+      <p class="gallery-note reveal">Enquanto as fotos do casal chegam, deixamos aqui exemplos ilustrativos do estilo da galeria.</p>
+
+      <div class="gallery-carousel reveal">
+        <button class="gallery-arrow gallery-arrow--prev" id="gallery-prev" aria-label="Foto anterior">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="gallery-track" id="gallery-track"></div>
+        <button class="gallery-arrow gallery-arrow--next" id="gallery-next" aria-label="Próxima foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DRESS CODE ============ -->
+  <section class="section" id="traje">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Traje</span>
+        <h2 class="h2">Dress Code</h2>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-block reveal">
+          <img src="assets/geral/traje-mulher.png" alt="Ilustração de traje sugerido para as mulheres" class="dc-illus" loading="lazy" />
+          <span class="label">Para as mulheres</span>
+          <p><strong>O que vestir:</strong> Vestidos longos ou midi, com modelagens elegantes e adequadas à ocasião.</p>
+          <p><strong>Sugestões de cores:</strong> Rosa, coral, terracota, champanhe, fúcsia ou estampas florais.</p>
+          <p><strong>Aviso importante:</strong> Pedimos a gentileza de <em>evitar todos os tons de azul e verde</em>, pois serão cores estritamente reservadas à composição das mães no altar. O branco e o off-white são cores exclusivas da noiva.</p>
+        </div>
+
+        <div class="info-block reveal">
+          <img src="assets/geral/traje-homem.png" alt="Ilustração de traje sugerido para os homens" class="dc-illus" loading="lazy" />
+          <span class="label">Para os homens</span>
+          <p><strong>O que vestir:</strong> Camisa social de manga longa combinada com calça de alfaiataria ou sarja. Para os pés, prefira sapato social, brogue ou mocassim.</p>
+          <p><strong>Cores sugeridas:</strong> Tons neutros, como cinza, cáqui e terrosos.</p>
+          <p><strong>Aviso importante:</strong> O uso de terno completo e gravata será reservado ao noivo e aos pais dos noivos. Pedimos a gentileza de <em>evitar roupas nos tons de azul e bege/areia</em>, pois são cores reservadas exclusivamente ao noivo e aos pais.</p>
+          <p>Evite jeans, bermuda e tênis esportivo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRESENTES ============ -->
+  <section class="section section--alt" id="presentes">
+    <div class="container">
+      <div class="content-narrow gift-text reveal">
+        <div class="card-icon gift-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <rect x="3" y="9" width="18" height="12" rx="1"/>
+            <line x1="3" y1="13" x2="21" y2="13"/>
+            <line x1="12" y1="9" x2="12" y2="21"/>
+            <path d="M12 9C9 9 7.5 7.3 7.5 5.8 7.5 4.6 8.4 4 9.3 4c1.5 0 2.4 1.8 2.7 5z"/>
+            <path d="M12 9c3 0 4.5-1.7 4.5-3.2 0-1.2-.9-1.8-1.8-1.8-1.5 0-2.4 1.8-2.7 5z"/>
+          </svg>
+        </div>
+        <span class="eyebrow">Presentes</span>
+        <h2 class="h2">Presentes</h2>
+        <p class="lede" style="margin-top:16px;">Queridos amigos e familiares, estamos muito felizes em compartilhar esse grande dia com vocês!</p>
+        <p style="margin-top:var(--space-3);">Para aqueles que desejam nos abençoar nesta nova jornada, preparamos nossa lista de presentes virtual aqui no site. Cada contribuição será um apoio fundamental para nos ajudar a finalizar a mobília do nosso lar e a estruturar nossa nova vida de casados com mais tranquilidade&nbsp;e&nbsp;segurança.</p>
+        <p style="margin-top:var(--space-3);">Fiquem à vontade para escolher como nos agradar! Desde já, agradecemos imensamente por todo o carinho e generosidade, e que Deus abençoe cada&nbsp;um&nbsp;de&nbsp;vocês.</p>
+      </div>
+      <div class="gift-cards">
+        <div class="gift-card reveal">
+          <div class="gift-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <rect x="3" y="9" width="18" height="12" rx="1"/>
+              <line x1="3" y1="13" x2="21" y2="13"/>
+              <line x1="12" y1="9" x2="12" y2="21"/>
+              <path d="M12 9C9 9 7.5 7.3 7.5 5.8 7.5 4.6 8.4 4 9.3 4c1.5 0 2.4 1.8 2.7 5z"/>
+              <path d="M12 9c3 0 4.5-1.7 4.5-3.2 0-1.2-.9-1.8-1.8-1.8-1.5 0-2.4 1.8-2.7 5z"/>
+            </svg>
+          </div>
+          <h3 class="h3">Lista de Casamento</h3>
+          <p>Escolha um presente especial em nossa lista.</p>
+          <div class="gift-card-foot">
+            <!-- EDITAR: substituir pelo link real da lista de presentes -->
+            <a class="btn btn-outline" href="#" target="_blank" rel="noopener">
+              Ver lista
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="gift-card reveal">
+          <div class="gift-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <rect x="2.5" y="5.5" width="19" height="13" rx="2"/>
+              <line x1="2.5" y1="10" x2="21.5" y2="10"/>
+              <line x1="6" y1="14.5" x2="10" y2="14.5"/>
+            </svg>
+          </div>
+          <h3 class="h3">Conta Bancária</h3>
+          <p>PIX ou transferência bancária para nos ajudar a realizar nossos sonhos</p>
+          <!-- EDITAR: substituir pelos dados bancários / chave Pix reais -->
+          <div class="gift-bank">
+            <p><span>Banco:</span> Itaú</p>
+            <p><span>Agência:</span> 0001</p>
+            <p><span>Conta:</span> 12345-6</p>
+            <p><span>PIX:</span> casamento@ricardoeniulsene.com</p>
+          </div>
+        </div>
+
+        <div class="gift-card reveal">
+          <div class="gift-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M21 8 12 3 3 8v8l9 5 9-5V8z"/>
+              <path d="M3 8l9 5 9-5"/>
+              <line x1="12" y1="13" x2="12" y2="21"/>
+            </svg>
+          </div>
+          <h3 class="h3">Caixa de Presentes</h3>
+          <p>Disponível no dia do casamento para quem preferir entregar pessoalmente</p>
+        </div>
+      </div>
+
+      <p class="gift-closing reveal">Agradecemos de coração por fazer parte deste momento especial!</p>
+    </div>
+  </section>
+
+  <!-- ============ INFORMAÇÕES IMPORTANTES ============ -->
+  <section class="section" id="informacoes">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Para os convidados</span>
+        <h2 class="h2">Informações Importantes</h2>
+      </div>
+
+      <div class="info-grid info-grid--three">
+        <div class="info-block reveal">
+          <img src="assets/icones/sem-celular.png" alt="" aria-hidden="true" class="info-icon" />
+          <span class="label">Uso de celulares</span>
+          <h3 class="h3">Cerimônia Desconectada</h3>
+          <p>Queremos ver o rosto e o sorriso de cada um de vocês em nossas fotos oficiais! Por isso, o momento da nossa cerimônia será totalmente desconectado. Pedimos a gentileza de guardarem os celulares e câmeras durante a celebração.</p>
+          <p>Temos uma equipe de profissionais registrando cada segundo e, logo após o término, na festa, o uso dos celulares está totalmente liberado para vocês registrarem e comemorarem muito conosco! Aproveitem esse momento com o coração presente.</p>
+        </div>
+
+        <div class="info-block reveal">
+          <img src="assets/icones/criancas.png" alt="" aria-hidden="true" class="info-icon" />
+          <span class="label">Aos pais</span>
+          <h3 class="h3">Sobre as Crianças</h3>
+          <p>Amamos a energia e a alegria dos pequenos! Como o local conta com equipamentos técnicos, câmeras em movimento e decorações delicadas, pedimos o apoio especial dos pais para manterem as crianças por perto e sob supervisão durante o evento, garantindo a segurança de todos.</p>
+        </div>
+
+        <div class="info-block reveal">
+          <img src="assets/icones/doces.png" alt="" aria-hidden="true" class="info-icon" />
+          <span class="label">Doces</span>
+          <h3 class="h3">Mesa de Doces e Bem-Casados</h3>
+          <p>Pensando no conforto de todos e para evitar filas, o serviço será iniciado de forma contínua durante a festa.</p>
+          <p>Nossa equipe de buffet estará à disposição para ajudar você a escolher suas opções favoritas e embalá-las com todo carinho.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização de foto">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Fechar">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+  </button>
+  <button class="lightbox-prev" id="lightbox-prev" aria-label="Foto anterior">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <figure class="lightbox-figure">
+    <img id="lightbox-img" src="" alt="" />
+    <figcaption class="lightbox-counter" id="lightbox-counter">01 / 06</figcaption>
+  </figure>
+  <button class="lightbox-next" id="lightbox-next" aria-label="Próxima foto">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <img src="assets/geral/monograma.png" alt="" aria-hidden="true" class="footer-monograma" />
+    <img src="assets/geral/assinatura.png" alt="Niuslene e Ricardo" class="footer-assinatura" />
+    <p class="footer-date">26 de setembro de 2026</p>
+    <p class="footer-message">Com carinho, esperamos vocês para celebrar este dia conosco.</p>
+    <a href="#home" class="back-to-top">
+      Voltar ao topo
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="20" x2="12" y2="4"/><polyline points="6 10 12 4 18 10"/></svg>
+    </a>
+
+    <div class="footer-credit">
+      <span>Site criado pela</span>
+      <img src="assets/icones/imporium-logo.png" alt="Imporium Convites" class="footer-credit-logo" loading="lazy" />
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ---------- Header scroll state ---------- */
+  var header = document.getElementById('site-header');
+  function onScroll() {
+    if (window.scrollY > 40) {
+      header.classList.add('is-scrolled');
+    } else {
+      header.classList.remove('is-scrolled');
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ---------- Mobile nav ---------- */
+  var navToggle = document.getElementById('nav-toggle');
+  var navPanel = document.getElementById('nav-panel');
+  var navOverlay = document.getElementById('nav-overlay');
+  var navPanelClose = document.getElementById('nav-panel-close');
+
+  function openMenu() {
+    navPanel.classList.add('is-open');
+    navOverlay.classList.add('is-open');
+    navPanel.setAttribute('aria-hidden', 'false');
+    navToggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    navPanel.classList.remove('is-open');
+    navOverlay.classList.remove('is-open');
+    navPanel.setAttribute('aria-hidden', 'true');
+    navToggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    navToggle.focus();
+  }
+  navToggle.addEventListener('click', function () {
+    if (navPanel.classList.contains('is-open')) { closeMenu(); } else { openMenu(); }
+  });
+  navPanelClose.addEventListener('click', closeMenu);
+  navOverlay.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && navPanel.classList.contains('is-open')) { closeMenu(); }
+  });
+  Array.prototype.forEach.call(navPanel.querySelectorAll('a'), function (a) {
+    a.addEventListener('click', closeMenu);
+  });
+
+  /* ---------- Active nav link on scroll ---------- */
+  var sections = ['home', 'local', 'historia', 'rsvp', 'galeria', 'traje', 'presentes', 'informacoes'];
+  var navLinks = document.querySelectorAll('.nav-desktop a, .nav-mobile a');
+  var sectionEls = sections.map(function (id) { return document.getElementById(id); }).filter(Boolean);
+
+  if ('IntersectionObserver' in window) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var id = entry.target.id;
+          navLinks.forEach(function (a) {
+            var match = a.getAttribute('href') === '#' + id;
+            a.classList.toggle('is-active', match);
+          });
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    sectionEls.forEach(function (el) { spy.observe(el); });
+  }
+
+  /* ---------- Reveal on scroll ---------- */
+  var reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(function (el) { io.observe(el); });
+  } else {
+    reveals.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+
+  /* ---------- Countdown ---------- */
+  var weddingDate = new Date('2026-09-26T15:30:00-03:00').getTime();
+  var cdDays = document.getElementById('cd-days');
+  var cdHours = document.getElementById('cd-hours');
+  var cdMinutes = document.getElementById('cd-minutes');
+  var cdSeconds = document.getElementById('cd-seconds');
+
+  function pad(n) { return n < 10 ? '0' + n : String(n); }
+
+  function updateCountdown() {
+    var diff = weddingDate - Date.now();
+    if (diff < 0) diff = 0;
+    var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    var minutes = Math.floor((diff / (1000 * 60)) % 60);
+    var seconds = Math.floor((diff / 1000) % 60);
+    cdDays.textContent = pad(days);
+    cdHours.textContent = pad(hours);
+    cdMinutes.textContent = pad(minutes);
+    cdSeconds.textContent = pad(seconds);
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  /* ---------- Gallery + Lightbox ---------- */
+  var defaultGallery = ['foto-01.jpg', 'foto-02.jpg', 'foto-03.jpg', 'foto-04.jpg', 'foto-05.jpg', 'foto-06.jpg'];
+  var galleryAlts = {
+    'foto-01.jpg': 'Casal em jardim clássico, foto ilustrativa',
+    'foto-02.jpg': 'Casal de mãos dadas em um parque, foto ilustrativa',
+    'foto-03.jpg': 'Casal em jardim ao entardecer, foto ilustrativa',
+    'foto-04.jpg': 'Casal em momento íntimo, foto ilustrativa',
+    'foto-05.jpg': 'Casal caminhando junto a construção clássica, foto ilustrativa',
+    'foto-06.jpg': 'Casal caminhando em jardim, foto ilustrativa'
+  };
+
+  var galleryTrack = document.getElementById('gallery-track');
+  var galleryPrevBtn = document.getElementById('gallery-prev');
+  var galleryNextBtn = document.getElementById('gallery-next');
+  var lightbox = document.getElementById('lightbox');
+  var lightboxImg = document.getElementById('lightbox-img');
+  var lightboxCounter = document.getElementById('lightbox-counter');
+  var currentIndex = 0;
+  var galleryFiles = [];
+  var autoplayTimer = null;
+  var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function clearElement(el) {
+    while (el.firstChild) { el.removeChild(el.firstChild); }
+  }
+
+  function renderGallery(files) {
+    galleryFiles = files;
+    clearElement(galleryTrack);
+    if (!files.length) {
+      var empty = document.createElement('p');
+      empty.className = 'gallery-empty';
+      empty.textContent = 'As fotos serão adicionadas em breve.';
+      galleryTrack.appendChild(empty);
+      return;
+    }
+    files.forEach(function (file, index) {
+      var item = document.createElement('div');
+      item.className = 'gallery-slide';
+      var img = document.createElement('img');
+      img.src = 'assets/galeria/' + file;
+      img.alt = galleryAlts[file] || 'Foto do casal';
+      img.loading = 'lazy';
+      item.appendChild(img);
+      item.addEventListener('click', function () { openLightbox(index); });
+      galleryTrack.appendChild(item);
+    });
+    startAutoplay();
+  }
+
+  function scrollGallery(direction) {
+    var slide = galleryTrack.querySelector('.gallery-slide');
+    if (!slide) return;
+    var gap = 16;
+    var amount = slide.getBoundingClientRect().width + gap;
+    var atEnd = galleryTrack.scrollLeft + galleryTrack.clientWidth >= galleryTrack.scrollWidth - 4;
+    var atStart = galleryTrack.scrollLeft <= 4;
+    if (direction > 0 && atEnd) {
+      galleryTrack.scrollTo({ left: 0, behavior: 'smooth' });
+    } else if (direction < 0 && atStart) {
+      galleryTrack.scrollTo({ left: galleryTrack.scrollWidth, behavior: 'smooth' });
+    } else {
+      galleryTrack.scrollBy({ left: direction * amount, behavior: 'smooth' });
+    }
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+    if (prefersReducedMotion || galleryFiles.length < 2) return;
+    autoplayTimer = setInterval(function () { scrollGallery(1); }, 4000);
+  }
+  function stopAutoplay() {
+    if (autoplayTimer) { clearInterval(autoplayTimer); autoplayTimer = null; }
+  }
+
+  if (galleryPrevBtn) galleryPrevBtn.addEventListener('click', function () { scrollGallery(-1); startAutoplay(); });
+  if (galleryNextBtn) galleryNextBtn.addEventListener('click', function () { scrollGallery(1); startAutoplay(); });
+  if (galleryTrack) {
+    galleryTrack.addEventListener('mouseenter', stopAutoplay);
+    galleryTrack.addEventListener('mouseleave', startAutoplay);
+    galleryTrack.addEventListener('touchstart', stopAutoplay, { passive: true });
+  }
+
+  function openLightbox(index) {
+    currentIndex = index;
+    updateLightbox();
+    lightbox.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+  function updateLightbox() {
+    var file = galleryFiles[currentIndex];
+    lightboxImg.src = 'assets/galeria/' + file;
+    lightboxImg.alt = galleryAlts[file] || 'Foto do casal';
+    lightboxCounter.textContent = pad(currentIndex + 1) + ' / ' + pad(galleryFiles.length);
+  }
+  function nextImage() { currentIndex = (currentIndex + 1) % galleryFiles.length; updateLightbox(); }
+  function prevImage() { currentIndex = (currentIndex - 1 + galleryFiles.length) % galleryFiles.length; updateLightbox(); }
+
+  document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+  document.getElementById('lightbox-next').addEventListener('click', nextImage);
+  document.getElementById('lightbox-prev').addEventListener('click', prevImage);
+  lightbox.addEventListener('click', function (e) { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', function (e) {
+    if (!lightbox.classList.contains('is-open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') nextImage();
+    if (e.key === 'ArrowLeft') prevImage();
+  });
+
+  /* Tenta carregar assets/galeria/gallery.json (permite adicionar fotos sem editar HTML);
+     usa a lista padrão como fallback (necessário ao abrir o arquivo direto, sem servidor). */
+  fetch('assets/galeria/gallery.json')
+    .then(function (res) { if (!res.ok) throw new Error('no gallery.json'); return res.json(); })
+    .then(function (files) { renderGallery(Array.isArray(files) && files.length ? files : defaultGallery); })
+    .catch(function () { renderGallery(defaultGallery); });
+
+})();
+</script>
+</body>
+</html>

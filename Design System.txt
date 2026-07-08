@@ -1,0 +1,130 @@
+Design System — Site de Casamento
+Niuslene & Ricardo
+Villa Cheberle · Lauro de Freitas/BA · 26 de setembro de 2026, 15h30
+
+Baseado na Identidade Visual Exclusiva produzida pela Imporium
+("IDV- NIUSLENE E RICARDO.pdf"). Cores extraídas oficialmente do documento;
+as dos dois verdes (Verde Sálvia/Verde Musgo) foram reconstruídas por
+amostragem de cor porque os dois rótulos no PDF saíram com o mesmo hex por
+engano — os valores abaixo foram calibrados a partir das outras cores
+conhecidas do mesmo documento para bater com a intenção visual original.
+
+1. Cores
+A paleta combina tons neutros e naturais, unindo o branco, o champanhe, o
+dourado e os verdes suaves para transmitir elegância, leveza e sofisticação,
+reforçando a atmosfera clássica e atemporal do casamento.
+
+Paleta principal
+Cor            Hex       Uso
+Branco         #FFFFFF   Fundo principal, áreas de respiro, fundo de cards
+Off-white      #F4EFE7   Fundo de seções alternadas, blocos de destaque suave
+
+Paleta secundária
+Cor                 Hex       Uso
+Champanhe           #D1B995   Linhas decorativas, selos, divisórias, hover suave
+Dourado             #B69B58   Títulos de destaque, botões, monograma, ícones
+
+Paleta de suporte
+Cor              Hex       Uso
+Verde sálvia     #818159   Detalhes florais, acentos discretos
+Verde musgo      #676032   Texto sobre elementos florais, estados ativos
+Tinta            #3A352D   Corpo de texto principal (mais quente que preto puro)
+Pedra            #8D8879   Texto secundário, legendas, datas, placeholders
+Dourado escuro   #97814A   Estado hover/active de botões e links dourados
+Linha sutil      #E7DFD0   Bordas de inputs e cards, divisórias finas
+
+Princípio de contraste: o corpo de texto nunca usa dourado ou verde sobre
+branco (contraste insuficiente). Dourado e verde ficam reservados a títulos
+grandes, ícones, linhas decorativas e elementos interativos; a leitura
+corrente usa a cor tinta sobre fundo claro.
+
+2. Tipografia
+Duas famílias, ambas via Google Fonts — combinação próxima da caligrafia
+dourada da assinatura oficial e da serifada clássica usada nos títulos do
+material impresso.
+
+Fonte de exibição — Tangerine
+Script caligráfico, clássico e fluido, usado como voz emocional do site.
+Sempre que possível, prefira a imagem real da assinatura
+(assets/geral/assinatura.png) em vez do texto — ela é o traço oficial do
+casal. Use a fonte Tangerine apenas onde a imagem não couber bem (ex.: meta
+tags, fallback).
+
+Fonte secundária / texto — Cormorant Garamond
+Serifada de traço fino, atemporal e altamente legível. Sustenta toda a
+estrutura: títulos de seção, subtítulos, corpo de texto, botões e legendas.
+
+Hierarquia
+Nível                     Fonte               Tamanho (desktop)  Peso        Observações
+Display (nomes do casal)  Imagem assinatura   —                  —           assets/geral/assinatura.png
+H1 (saudação de abertura) Cormorant Garamond  40–48px            500 itálico Letterspacing leve
+H2 (título de seção)      Cormorant Garamond  38–46px            500         Letterspacing +0.5px, cor tinta
+H3 (subtítulo)            Cormorant Garamond  24–28px            400        Pode receber dourado em destaques
+Corpo de texto            Cormorant Garamond  18–20px            400         Altura de linha 1.75, cor tinta
+Legenda / detalhe         Cormorant Garamond  14–15px            400         Cor pedra, usado em datas e endereços
+Botão / rótulo            Cormorant Garamond  13–15px            500         Caixa alta, letterspacing +1.5px
+
+3. Marca — Brasão, Monograma e Assinatura
+Três ativos oficiais, todos em dourado sobre fundo transparente:
+- assets/geral/brasao.png — brasão ornamentado (moldura vitoriana + "NR"),
+  usado como peça central da capa e no rodapé.
+- assets/geral/monograma.png — "NR" isolado, sem moldura; usado pequeno no
+  menu (40–48px de altura) e como base do favicon.
+- assets/geral/assinatura.png — "Niuslene e Ricardo" em script dourado;
+  substitui o texto dos nomes na capa e no rodapé.
+Manter sempre uma área de proteção ao redor de cada peça (pelo menos metade
+da própria altura) livre de outros elementos.
+
+4. Aquarela
+assets/geral/aquarela.png — ilustração em aquarela da Villa Cheberle
+(pergolado, capela de madeira, lustre, palmeiras), já finalizada em
+composição circular (medalhão) sobre fundo transparente. É a peça central de
+identidade visual do site: ocupa a capa, centralizada, em bom tamanho
+(340–460px de diâmetro no desktop, ~220–260px no mobile), sem moldura
+adicional — a própria ilustração já tem a vinheta circular.
+
+5. Elementos de apoio
+- assets/geral/elemento-pombas.png — duas pombas unidas por uma fita,
+  traço dourado. Usado como ornamento discreto na seção de Boas-vindas
+  (representa a união do casal).
+- assets/geral/floral-calla.png — copo-de-leite em traço dourado. Usado
+  como acento vertical discreto em Nossa História.
+- assets/geral/estampa.png — estampa repetível de flores e pombas em traço
+  dourado. Usada em opacidade muito baixa (4–8%) como textura de fundo,
+  nunca em opacidade cheia (viraria ruído visual).
+
+6. Componentes
+Botões
+Primário: fundo dourado #B69B58, texto branco em Cormorant Garamond caixa
+alta com letterspacing +1.5px, cantos suavemente arredondados (4px), sem
+sombra forte. Hover: escurece para #97814A com transição lenta (0.3s).
+Preenchimento generoso (16px vertical, 36px horizontal).
+Secundário (contorno): fundo transparente, borda fina 1px dourada, texto
+dourado. Hover: preenche de dourado, texto vira branco.
+
+Cards
+Para cerimônia/recepção/localização e informações importantes. Fundo
+branco, borda sutil 1px (#E7DFD0) ou sombra muito leve, cantos arredondados
+8px, preenchimento interno de 24–32px. Hover: elevação delicada (sombra
+cresce, card sobe 2–4px).
+
+7. Estética
+Arredondamento: botões e inputs 4px; cards e imagens 8px; elementos
+circulares (monograma, selos) 50%.
+Sombras: praticamente ausentes; quando necessárias (cards em hover, header
+fixo ao rolar), longas, difusas, muito claras (deslocamento 4px, desfoque
+24px, opacidade 6–10%).
+Espaçamentos: escala de 8px — 8/16/24/32/48/64/96/128. Seções com respiro
+vertical amplo (96–128px no desktop). Largura de texto confortável (~680px).
+Rolagem: elementos surgem com fade-up suave (0.6–0.8s, curva suave). O
+contador pulsa com delicadeza. Tudo lento e fluido — como folhear um álbum,
+nunca uma sequência de cliques.
+Tom da escrita: caloroso, próximo, na primeira pessoa do plural — a voz do
+casal.
+
+8. Capa / Hero
+Fundo claro (off-white, com a estampa em opacidade baixíssima), NÃO foto
+escura com overlay — a capa funciona como a peça impressa de um convite:
+brasão no topo, aquarela em medalhão como imagem central, assinatura
+("Niuslene e Ricardo") abaixo, data em Cormorant Garamond, texto de
+boas-vindas curto e indicação de "role para baixo" na base.

@@ -47,7 +47,7 @@
     --color-gold-dark: #97814a;
     --color-champagne: #d1b995;
 
-    --color-ink: #3a352d;
+    --color-ink: #6a675f;
     --color-stone: #6e6a5c;
     --color-line: #e7dfd0;
 
@@ -478,13 +478,13 @@
      ============================================================ */
   .countdown-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-3);
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-2);
     max-width: 560px;
     margin: 0 auto;
   }
   @media (min-width: 480px) {
-    .countdown-grid { grid-template-columns: repeat(4, 1fr); }
+    .countdown-grid { gap: var(--space-3); }
   }
 
   .countdown-cell {
@@ -870,7 +870,7 @@
     margin-top: var(--space-5);
   }
   @media (min-width: 768px) {
-    .gift-cards { grid-template-columns: repeat(3, 1fr); }
+    .gift-cards { grid-template-columns: repeat(2, 1fr); max-width: 720px; margin-left: auto; margin-right: auto; }
   }
 
   .gift-card {
@@ -1032,6 +1032,18 @@
 
     /* Dados bancários: e-mail quebra de forma limpa */
     .gift-bank p { overflow-wrap: anywhere; }
+
+    /* Capa: brasão maior e menos respiro acima dele */
+    .hero { padding-top: var(--space-2); }
+    .hero-brasao { width: clamp(140px, 40vw, 180px); }
+
+    /* Contagem: 4 colunas na horizontal, números menores para caber */
+    .countdown-num { font-size: clamp(24px, 8.5vw, 40px); }
+    .countdown-cell { padding: var(--space-2) 2px; }
+    .countdown-label { font-size: 11px; letter-spacing: 0.5px; }
+
+    /* Data da capa em uma única linha */
+    .hero-date { font-size: clamp(11px, 3.5vw, 15px); letter-spacing: 1.5px; white-space: nowrap; }
   }
 </style>
 </head>
@@ -1206,17 +1218,16 @@
           <img src="assets/geral/traje-mulher.png" alt="Ilustração de traje sugerido para as mulheres" class="dc-illus" loading="lazy" />
           <span class="label">Para as mulheres</span>
           <p><strong>O que vestir:</strong> Vestidos longos ou midi, com modelagens elegantes e adequadas à ocasião.</p>
-          <p><strong>Sugestões de cores:</strong> Rosa, coral, terracota, champanhe, fúcsia ou estampas florais.</p>
-          <p><strong>Aviso importante:</strong> Pedimos a gentileza de <em>evitar todos os tons de azul e verde</em>, pois serão cores estritamente reservadas à composição das mães no altar. O branco e o off-white são cores exclusivas da noiva.</p>
+          <p><strong>Cores sugeridas:</strong> Tons de rosa, lilás, amarelo, coral, terracota, fúcsia, champanhe ou estampas florais delicadas.</p>
+          <p><strong>Avisos importantes:</strong> Pedimos a gentileza de <em>evitar todos os tons de azul e verde</em>, pois serão cores estritamente reservadas à composição das mães no altar. Como de costume, o branco e o off-white são exclusivos da noiva.</p>
         </div>
 
         <div class="info-block reveal">
           <img src="assets/geral/traje-homem.png" alt="Ilustração de traje sugerido para os homens" class="dc-illus" loading="lazy" />
           <span class="label">Para os homens</span>
-          <p><strong>O que vestir:</strong> Camisa social de manga longa combinada com calça de alfaiataria ou sarja. Para os pés, prefira sapato social, brogue ou mocassim.</p>
-          <p><strong>Cores sugeridas:</strong> Tons neutros, como cinza, cáqui e terrosos.</p>
-          <p><strong>Aviso importante:</strong> O uso de terno completo e gravata será reservado ao noivo e aos pais dos noivos. Pedimos a gentileza de <em>evitar roupas nos tons de azul e bege/areia</em>, pois são cores reservadas exclusivamente ao noivo e aos pais.</p>
-          <p>Evite jeans, bermuda e tênis esportivo.</p>
+          <p><strong>O que vestir:</strong> Seguindo o estilo esporte fino, sugerimos camisa social de manga longa combinada com calça social ou de sarja. O uso de blazer ou paletó avulso é opcional. Para os pés, prefira sapato social, brogue ou mocassim.</p>
+          <p><strong>Cores sugeridas:</strong> Para a camisa, branco ou tons claros e pastéis, como azul-claro e cinza-claro. Para a calça ou blazer, cinza-grafite, marrom, vinho, marsala, cáqui escuro ou tons terrosos escuros como o café.</p>
+          <p><strong>Avisos importantes:</strong> A gravata é de uso exclusivo do noivo, pais e equipe celebrante. Pedimos que os convidados não usem blazers ou calças nas cores azul-marinho e areia fria, que são reservadas ao noivo e aos pais. Evite jeans, bermuda e tênis esportivo.</p>
         </div>
       </div>
     </div>
@@ -1238,8 +1249,8 @@
         <span class="eyebrow">Presentes</span>
         <h2 class="h2">Presentes</h2>
         <p class="lede" style="margin-top:16px;">Queridos amigos e familiares, estamos muito felizes em compartilhar esse grande dia com vocês!</p>
-        <p style="margin-top:var(--space-3);">Para aqueles que desejam nos abençoar nesta nova jornada, preparamos nossa lista de presentes virtual aqui no site. Cada contribuição será um apoio fundamental para nos ajudar a finalizar a mobília do nosso lar e a estruturar nossa nova vida de casados com mais tranquilidade&nbsp;e&nbsp;segurança.</p>
-        <p style="margin-top:var(--space-3);">Fiquem à vontade para escolher como nos agradar! Desde já, agradecemos imensamente por todo o carinho e generosidade, e que Deus abençoe cada&nbsp;um&nbsp;de&nbsp;vocês.</p>
+        <p style="margin-top:var(--space-3);">Para aqueles que desejam nos abençoar nesta nova jornada, preparamos nossa lista de presentes virtual aqui no site. Cada contribuição será um apoio fundamental para nos ajudar a finalizar a mobília do nosso lar e a estruturar nossa nova vida de casados. Sua presença já é o nosso maior presente, mas caso queira nos mimar, preparamos tudo com muito&nbsp;carinho.</p>
+        <p style="margin-top:var(--space-3);">Desde já, agradecemos imensamente por todo o afeto e generosidade. Que Deus abençoe cada&nbsp;um&nbsp;de&nbsp;vocês!</p>
       </div>
       <div class="gift-cards">
         <div class="gift-card reveal">
@@ -1282,17 +1293,6 @@
           </div>
         </div>
 
-        <div class="gift-card reveal">
-          <div class="gift-card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-              <path d="M21 8 12 3 3 8v8l9 5 9-5V8z"/>
-              <path d="M3 8l9 5 9-5"/>
-              <line x1="12" y1="13" x2="12" y2="21"/>
-            </svg>
-          </div>
-          <h3 class="h3">Caixa de Presentes</h3>
-          <p>Disponível no dia do casamento para quem preferir entregar pessoalmente</p>
-        </div>
       </div>
 
       <p class="gift-closing reveal">Agradecemos de coração por fazer parte deste momento especial!</p>

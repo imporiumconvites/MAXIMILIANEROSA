@@ -1033,8 +1033,8 @@
     /* Dados bancários: e-mail quebra de forma limpa */
     .gift-bank p { overflow-wrap: anywhere; }
 
-    /* Capa: brasão maior e menos respiro acima dele */
-    .hero { padding-top: var(--space-2); }
+    /* Capa: alinha ao topo (evita centralização vertical em telas altas) */
+    .hero { min-height: auto; align-items: flex-start; padding-top: calc(var(--header-h) + var(--space-2)); padding-bottom: var(--space-6); }
     .hero-brasao { width: clamp(140px, 40vw, 180px); }
 
     /* Contagem: 4 colunas na horizontal, números menores para caber */

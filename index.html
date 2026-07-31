@@ -732,58 +732,38 @@
     margin-bottom: var(--space-5);
   }
 
-  .gallery-carousel {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
+  /* Mosaico (masonry) via colunas — cards sem borda e sem sombra */
+  .gallery-masonry {
+    column-count: 3;
+    column-gap: var(--space-2);
   }
+  @media (max-width: 900px) { .gallery-masonry { column-count: 2; } }
+  @media (max-width: 480px) { .gallery-masonry { column-count: 2; column-gap: var(--space-1); } }
 
-  .gallery-track {
-    display: flex;
-    gap: var(--space-2);
-    flex: 1;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    padding: 4px 0 12px;
-    scrollbar-width: none;
-  }
-  .gallery-track::-webkit-scrollbar { display: none; }
-
-  .gallery-slide {
-    flex: 0 0 auto;
-    width: clamp(150px, 24vw, 260px);
-    aspect-ratio: 1 / 1;
-    scroll-snap-align: start;
-    border-radius: var(--radius-card);
+  .gallery-item {
+    break-inside: avoid;
+    margin-bottom: var(--space-2);
     overflow: hidden;
+    border-radius: var(--radius-card);
     cursor: pointer;
-    background: var(--color-line);
+    line-height: 0;
   }
+  @media (max-width: 480px) { .gallery-item { margin-bottom: var(--space-1); } }
+  .gallery-item.is-hidden { display: none; }
 
-  .gallery-slide img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.6s ease, filter 0.4s ease;
   }
-  .gallery-slide:hover img { transform: scale(1.08); }
+  .gallery-item:hover img { transform: scale(1.04); filter: brightness(1.03); }
 
-  .gallery-arrow {
-    flex: 0 0 auto;
-    width: 44px; height: 44px;
-    border-radius: 50%;
-    border: 1px solid var(--color-gold);
-    background: var(--color-white);
-    color: var(--color-gold-dark);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background-color var(--t-med), color var(--t-med);
+  .gallery-more {
+    text-align: center;
+    margin-top: var(--space-4);
   }
-  .gallery-arrow:hover { background: var(--color-gold); color: var(--color-white); }
-  .gallery-arrow svg { width: 18px; height: 18px; }
+  .gallery-more.is-done { display: none; }
 
   .gallery-empty {
     text-align: center;
@@ -1029,9 +1009,6 @@
     .btn-row .btn,
     .info-block .btn { width: 100%; max-width: 340px; }
 
-    /* Galeria: slides maiores, melhores para o toque */
-    .gallery-slide { width: clamp(180px, 62vw, 240px); }
-
     /* Aquarela do local com um pouco mais de presença sem cortar */
     .venue-showcase-img { width: min(94vw, 460px); }
 
@@ -1178,7 +1155,7 @@
       <div class="content-narrow reveal" style="text-align:center;">
         <img src="assets/icones/rsvp.png" alt="" aria-hidden="true" class="rsvp-icon" />
         <span class="eyebrow">Confirmação de presença</span>
-        <p class="lede" style="margin-top:16px;">Pedimos a gentileza de confirmarem sua presença aqui no site até o dia <strong>10/09/2026</strong>. A confirmação é indispensável para o controle da nossa lista de convidados na portaria. Contamos com vocês!</p>
+        <p class="lede" style="margin-top:16px;">Pedimos a gentileza de confirmarem sua presença aqui no site até o dia <strong>05/09/2026</strong>. A confirmação é indispensável para o controle da nossa lista de convidados na portaria. Contamos com vocês!</p>
       </div>
       <div class="btn-row reveal" style="margin-top:var(--space-5);">
         <!-- EDITAR: substituir pelo link/formulário real de confirmação de presença -->
@@ -1194,16 +1171,9 @@
         <span class="eyebrow">Galeria</span>
         <h2 class="h2">Nossos Momentos</h2>
       </div>
-      <p class="gallery-note reveal">Enquanto as fotos do casal chegam, deixamos aqui exemplos ilustrativos do estilo da galeria.</p>
-
-      <div class="gallery-carousel reveal">
-        <button class="gallery-arrow gallery-arrow--prev" id="gallery-prev" aria-label="Foto anterior">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <div class="gallery-track" id="gallery-track"></div>
-        <button class="gallery-arrow gallery-arrow--next" id="gallery-next" aria-label="Próxima foto">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
+      <div class="gallery-masonry reveal" id="gallery-grid"></div>
+      <div class="gallery-more reveal" id="gallery-more">
+        <button class="btn btn-outline" id="gallery-more-btn" type="button">Ver mais fotos</button>
       </div>
     </div>
   </section>
@@ -1478,26 +1448,21 @@
   setInterval(updateCountdown, 1000);
 
   /* ---------- Gallery + Lightbox ---------- */
-  var defaultGallery = ['foto-01.jpg', 'foto-02.jpg', 'foto-03.jpg', 'foto-04.jpg', 'foto-05.jpg', 'foto-06.jpg'];
-  var galleryAlts = {
-    'foto-01.jpg': 'Casal em jardim clássico, foto ilustrativa',
-    'foto-02.jpg': 'Casal de mãos dadas em um parque, foto ilustrativa',
-    'foto-03.jpg': 'Casal em jardim ao entardecer, foto ilustrativa',
-    'foto-04.jpg': 'Casal em momento íntimo, foto ilustrativa',
-    'foto-05.jpg': 'Casal caminhando junto a construção clássica, foto ilustrativa',
-    'foto-06.jpg': 'Casal caminhando em jardim, foto ilustrativa'
-  };
+  var defaultGallery = [
+    'foto-01.jpg', 'foto-02.jpg', 'foto-03.jpg', 'foto-04.jpg', 'foto-05.jpg', 'foto-06.jpg',
+    'foto-07.jpg', 'foto-08.jpg', 'foto-09.jpg', 'foto-10.jpg', 'foto-11.jpg'
+  ];
+  var galleryAlts = {};
 
-  var galleryTrack = document.getElementById('gallery-track');
-  var galleryPrevBtn = document.getElementById('gallery-prev');
-  var galleryNextBtn = document.getElementById('gallery-next');
+  var galleryGrid = document.getElementById('gallery-grid');
+  var galleryMore = document.getElementById('gallery-more');
+  var galleryMoreBtn = document.getElementById('gallery-more-btn');
   var lightbox = document.getElementById('lightbox');
   var lightboxImg = document.getElementById('lightbox-img');
   var lightboxCounter = document.getElementById('lightbox-counter');
   var currentIndex = 0;
   var galleryFiles = [];
-  var autoplayTimer = null;
-  var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var INITIAL_COUNT = 6;
 
   function clearElement(el) {
     while (el.firstChild) { el.removeChild(el.firstChild); }
@@ -1505,60 +1470,41 @@
 
   function renderGallery(files) {
     galleryFiles = files;
-    clearElement(galleryTrack);
+    clearElement(galleryGrid);
     if (!files.length) {
       var empty = document.createElement('p');
       empty.className = 'gallery-empty';
       empty.textContent = 'As fotos serão adicionadas em breve.';
-      galleryTrack.appendChild(empty);
+      galleryGrid.appendChild(empty);
+      if (galleryMore) galleryMore.classList.add('is-done');
       return;
     }
     files.forEach(function (file, index) {
       var item = document.createElement('div');
-      item.className = 'gallery-slide';
+      item.className = 'gallery-item' + (index >= INITIAL_COUNT ? ' is-hidden' : '');
       var img = document.createElement('img');
       img.src = 'assets/galeria/' + file;
       img.alt = galleryAlts[file] || 'Foto do casal';
       img.loading = 'lazy';
       item.appendChild(img);
       item.addEventListener('click', function () { openLightbox(index); });
-      galleryTrack.appendChild(item);
+      galleryGrid.appendChild(item);
     });
-    startAutoplay();
-  }
-
-  function scrollGallery(direction) {
-    var slide = galleryTrack.querySelector('.gallery-slide');
-    if (!slide) return;
-    var gap = 16;
-    var amount = slide.getBoundingClientRect().width + gap;
-    var atEnd = galleryTrack.scrollLeft + galleryTrack.clientWidth >= galleryTrack.scrollWidth - 4;
-    var atStart = galleryTrack.scrollLeft <= 4;
-    if (direction > 0 && atEnd) {
-      galleryTrack.scrollTo({ left: 0, behavior: 'smooth' });
-    } else if (direction < 0 && atStart) {
-      galleryTrack.scrollTo({ left: galleryTrack.scrollWidth, behavior: 'smooth' });
-    } else {
-      galleryTrack.scrollBy({ left: direction * amount, behavior: 'smooth' });
+    if (galleryMore) {
+      if (files.length <= INITIAL_COUNT) {
+        galleryMore.classList.add('is-done');
+      } else {
+        galleryMore.classList.remove('is-done');
+      }
     }
   }
 
-  function startAutoplay() {
-    stopAutoplay();
-    if (prefersReducedMotion || galleryFiles.length < 2) return;
-    autoplayTimer = setInterval(function () { scrollGallery(1); }, 4000);
+  function showAllPhotos() {
+    var hidden = galleryGrid.querySelectorAll('.gallery-item.is-hidden');
+    for (var i = 0; i < hidden.length; i++) { hidden[i].classList.remove('is-hidden'); }
+    if (galleryMore) galleryMore.classList.add('is-done');
   }
-  function stopAutoplay() {
-    if (autoplayTimer) { clearInterval(autoplayTimer); autoplayTimer = null; }
-  }
-
-  if (galleryPrevBtn) galleryPrevBtn.addEventListener('click', function () { scrollGallery(-1); startAutoplay(); });
-  if (galleryNextBtn) galleryNextBtn.addEventListener('click', function () { scrollGallery(1); startAutoplay(); });
-  if (galleryTrack) {
-    galleryTrack.addEventListener('mouseenter', stopAutoplay);
-    galleryTrack.addEventListener('mouseleave', startAutoplay);
-    galleryTrack.addEventListener('touchstart', stopAutoplay, { passive: true });
-  }
+  if (galleryMoreBtn) galleryMoreBtn.addEventListener('click', showAllPhotos);
 
   function openLightbox(index) {
     currentIndex = index;

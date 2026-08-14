@@ -1,0 +1,30 @@
+<svg viewBox="0 0 640 720" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#cfe4e6"/>
+      <stop offset="55%" stop-color="#f2e9d8"/>
+      <stop offset="100%" stop-color="#e7d9b8"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="720" fill="url(#sky)"/>
+  <circle cx="480" cy="150" r="70" fill="#f7efd9" opacity="0.9"/>
+  <path d="M0 480 Q160 430 320 470 T640 460 V720 H0 Z" fill="#ded1a3" opacity="0.55"/>
+  <path d="M0 560 Q180 520 320 555 T640 545 V720 H0 Z" fill="#c9b988" opacity="0.6"/>
+  <g stroke="#8a7b52" stroke-width="6" fill="none" stroke-linecap="round">
+    <path d="M180 560 C176 460 150 400 90 360"/>
+    <path d="M180 480 C150 460 110 450 70 460"/>
+    <path d="M180 470 C160 440 150 410 160 375"/>
+    <path d="M180 460 C210 430 250 415 290 420"/>
+    <path d="M180 450 C205 420 215 390 205 355"/>
+  </g>
+  <g stroke="#8a7b52" stroke-width="6" fill="none" stroke-linecap="round">
+    <path d="M470 600 C466 500 440 440 380 400"/>
+    <path d="M470 520 C440 500 400 490 360 500"/>
+    <path d="M470 510 C450 480 440 450 450 415"/>
+    <path d="M470 500 C500 470 540 455 580 460"/>
+    <path d="M470 490 C495 460 505 430 495 395"/>
+  </g>
+  <text x="320" y="650" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#7a6a45">
+    Foto do local em breve
+  </text>
+</svg>

@@ -508,6 +508,9 @@
     z-index: 1;
   }
   .lang-switch button {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
     background: none;
     border: none;
     cursor: pointer;
@@ -527,6 +530,14 @@
     border-color: var(--color-gold);
   }
   .lang-switch-sep { color: var(--color-line); font-size: 11px; }
+  .lang-flag {
+    width: 18px;
+    height: 13px;
+    object-fit: cover;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.08);
+    flex-shrink: 0;
+  }
 
   .nav-mobile-langs {
     margin-top: var(--space-4);
@@ -536,6 +547,9 @@
     gap: var(--space-2);
   }
   .nav-mobile-langs button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     background: none;
     border: none;
     cursor: pointer;
@@ -691,19 +705,22 @@
     max-width: 900px;
     margin: 0 auto;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: var(--space-4);
+    gap: var(--space-3);
   }
   .welcome-palm {
-    display: none;
-    width: 90px;
+    display: block;
+    width: 64px;
     height: auto;
     flex-shrink: 0;
+    opacity: 0.85;
   }
   .welcome-palm--right { transform: scaleX(-1); }
   @media (min-width: 700px) {
-    .welcome-palm { display: block; }
+    .welcome-box { flex-direction: row; gap: var(--space-4); }
+    .welcome-palm { width: 90px; opacity: 1; }
   }
   .welcome-text {
     font-family: var(--font-text);
@@ -1190,6 +1207,35 @@
   .gift-icon { width: 52px; height: 52px; margin-bottom: var(--space-3); }
   .rsvp-icon { width: 60px; height: 60px; object-fit: contain; margin: 0 auto var(--space-3); }
 
+  /* ============================================================
+     PARALLAX (a partir da Confirmação de Presença)
+     ============================================================ */
+  .parallax-section {
+    position: relative;
+    background-image: url('assets/geral/AQUARELA@2x.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+  .parallax-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.55);
+    pointer-events: none;
+  }
+  .parallax-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: var(--radius-card);
+    padding: var(--space-5) var(--space-4);
+    box-shadow: 0 20px 50px rgba(30, 24, 12, 0.12);
+  }
+  /* iOS Safari não suporta background-attachment: fixed com bom desempenho;
+     nesses casos, mantém a imagem estática (sem o efeito de profundidade). */
+  @supports (-webkit-touch-callout: none) {
+    .parallax-section { background-attachment: scroll; }
+  }
+
   .gift-cards {
     display: grid;
     gap: var(--space-3);
@@ -1382,6 +1428,13 @@
     .programacao-day-desc { font-size: 12px; line-height: 1.6; }
     .programacao-card { padding: var(--space-4) var(--space-2); }
 
+    /* Programação: "Para o grande dia!" e dicas menores e proporcionais no celular */
+    .programacao-tips-title { font-size: 14.5px; letter-spacing: 1px; margin-top: var(--space-4); }
+    .programacao-tip img { width: 20px; height: 20px; }
+    .programacao-tip p { font-size: 11px; letter-spacing: 0.2px; line-height: 1.5; }
+    .programacao-cheers { font-size: 11px; }
+    .programacao-cheers-icon { width: 18px; height: 18px; }
+
     /* Dress Code: empilha mulheres/homens em vez de duas colunas apertadas */
     .dresscode-illus { flex-direction: column; align-items: center; gap: var(--space-4); }
     .dresscode-look { width: 100%; max-width: 320px; }
@@ -1403,9 +1456,9 @@
 <header class="site-header" id="site-header">
   <div class="container">
     <div class="lang-switch" role="group" aria-label="Selecionar idioma / Sprache wählen">
-      <button type="button" data-lang="pt-BR">Português</button>
+      <button type="button" data-lang="pt-BR"><img src="assets/geral/Prancheta 3@2x.png" alt="" aria-hidden="true" class="lang-flag" /> PT-BR</button>
       <span class="lang-switch-sep" aria-hidden="true">|</span>
-      <button type="button" data-lang="de">Deutsch</button>
+      <button type="button" data-lang="de"><img src="assets/geral/Prancheta 2@2x.png" alt="" aria-hidden="true" class="lang-flag" /> DE</button>
     </div>
 
     <nav aria-label="Navegação principal">
@@ -1438,8 +1491,8 @@
     <li><a href="#traje" data-i18n="nav.traje">Dress Code</a></li>
   </ul>
   <div class="nav-mobile-langs" role="group" aria-label="Selecionar idioma / Sprache wählen">
-    <button type="button" data-lang="pt-BR">Português</button>
-    <button type="button" data-lang="de">Deutsch</button>
+    <button type="button" data-lang="pt-BR"><span aria-hidden="true">🇧🇷</span> PT-BR</button>
+    <button type="button" data-lang="de"><span aria-hidden="true">🇩🇪</span> DE</button>
   </div>
 </div>
 
@@ -1451,8 +1504,32 @@
       <img src="assets/geral/BRASÃO@2x.png" alt="" aria-hidden="true" class="hero-brasao" />
       <h1><img src="assets/geral/ASSINATURA@2x.png" alt="Maximilian e Rosa" class="hero-assinatura" data-i18n-attr="alt:a11y.coupleNames" /></h1>
     </div>
-    <div class="hero-aquarela-full">
-      <img src="assets/geral/AQUARELA@2x.png" alt="" aria-hidden="true" />
+  </section>
+
+  <!-- ============ CONTAGEM REGRESSIVA ============ -->
+  <section class="section" id="contagem">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="countdown.eyebrow">Contagem regressiva</span>
+      </div>
+      <div class="countdown-grid reveal">
+        <div class="countdown-cell">
+          <span class="countdown-num" id="cd-days">00</span>
+          <span class="countdown-label" data-i18n="countdown.days">Dias</span>
+        </div>
+        <div class="countdown-cell">
+          <span class="countdown-num" id="cd-hours">00</span>
+          <span class="countdown-label" data-i18n="countdown.hours">Horas</span>
+        </div>
+        <div class="countdown-cell">
+          <span class="countdown-num" id="cd-minutes">00</span>
+          <span class="countdown-label" data-i18n="countdown.minutes">Minutos</span>
+        </div>
+        <div class="countdown-cell">
+          <span class="countdown-num" id="cd-seconds">00</span>
+          <span class="countdown-label" data-i18n="countdown.seconds">Segundos</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1508,7 +1585,7 @@
           </div>
           <div class="programacao-tip">
             <img src="assets/geral/Prancheta 7@2x.png" alt="" aria-hidden="true" />
-            <p data-i18n="programacao.tip2">Tire muitas fotos e faça vários vídeos! Assim, você nos ajudará a eternizar&nbsp;esse&nbsp;momento.</p>
+            <p data-i18n-html="programacao.tip2">Tire muitas fotos e faça vários vídeos! Assim, você nos ajudará a eternizar&nbsp;esse&nbsp;momento.</p>
           </div>
         </div>
         <p class="programacao-cheers"><img src="assets/geral/Prancheta 8@2x.png" class="programacao-cheers-icon" alt="" aria-hidden="true" /> <span data-i18n="programacao.cheers">E divirta-se muito!!!</span></p>
@@ -1564,44 +1641,18 @@
     </div>
   </section>
 
-  <!-- ============ CONTAGEM REGRESSIVA ============ -->
-  <section class="section" id="contagem">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow" data-i18n="countdown.eyebrow">Contagem regressiva</span>
-      </div>
-      <div class="countdown-grid reveal">
-        <div class="countdown-cell">
-          <span class="countdown-num" id="cd-days">00</span>
-          <span class="countdown-label" data-i18n="countdown.days">Dias</span>
-        </div>
-        <div class="countdown-cell">
-          <span class="countdown-num" id="cd-hours">00</span>
-          <span class="countdown-label" data-i18n="countdown.hours">Horas</span>
-        </div>
-        <div class="countdown-cell">
-          <span class="countdown-num" id="cd-minutes">00</span>
-          <span class="countdown-label" data-i18n="countdown.minutes">Minutos</span>
-        </div>
-        <div class="countdown-cell">
-          <span class="countdown-num" id="cd-seconds">00</span>
-          <span class="countdown-label" data-i18n="countdown.seconds">Segundos</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ============ CONFIRMAÇÃO DE PRESENÇA (RSVP) ============ -->
-  <section class="section" id="rsvp">
-    <div class="container">
-      <div class="content-narrow reveal" style="text-align:center;">
+  <section class="section parallax-section" id="rsvp">
+    <div class="parallax-overlay"></div>
+    <div class="container" style="position:relative; z-index:2;">
+      <div class="content-narrow reveal parallax-card" style="text-align:center;">
         <img src="assets/geral/ELEMENTOS_1@2x.png" alt="" aria-hidden="true" class="rsvp-icon" />
         <span class="eyebrow" data-i18n="rsvp.eyebrow">Confirmação de presença</span>
         <p class="lede" style="margin-top:16px;" data-i18n="rsvp.lede1">Sua presença tornará este momento ainda mais especial para nós.</p>
         <p class="lede" style="margin-top:8px;" data-i18n="rsvp.lede2">Por isso, pedimos que confirme sua participação. Será uma alegria celebrar esse dia ao seu lado!</p>
-      </div>
-      <div class="btn-row reveal" style="margin-top:var(--space-5);">
-        <a class="btn btn-primary" href="https://www.niusleneericardo.com.br/public/site/lista-convidados?id=348069" target="_blank" rel="noopener" data-i18n="rsvp.button">Confirmar presença</a>
+        <div class="btn-row reveal" style="margin-top:var(--space-5);">
+          <a class="btn btn-primary" href="https://www.niusleneericardo.com.br/public/site/lista-convidados?id=348069" target="_blank" rel="noopener" data-i18n="rsvp.button">Confirmar presença</a>
+        </div>
       </div>
     </div>
   </section>
@@ -1963,7 +2014,7 @@
   });
 
   /* ---------- Active nav link on scroll ---------- */
-  var sections = ['home', 'boas-vindas', 'programacao', 'local', 'rsvp', 'traje'];
+  var sections = ['home', 'contagem', 'boas-vindas', 'programacao', 'local', 'rsvp', 'traje'];
   var navLinks = document.querySelectorAll('.nav-desktop a, .nav-mobile a');
   var sectionEls = sections.map(function (id) { return document.getElementById(id); }).filter(Boolean);
 

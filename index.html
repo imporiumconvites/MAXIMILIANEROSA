@@ -205,7 +205,12 @@
 
   .section--alt { background-color: var(--color-white); }
 
-  #programacao { position: relative; }
+  #programacao {
+    position: relative;
+    background-image: url('assets/geral/estampa-tile.png');
+    background-repeat: repeat;
+    background-size: 420px auto;
+  }
 
   .programacao-card {
     position: relative;
@@ -216,8 +221,8 @@
     padding: var(--space-4) var(--space-3);
     border-style: solid;
     border-width: clamp(20px, 4.5vw, 40px);
-    border-image-source: url('assets/geral/FUNDO PROGRAMAÇÃO@2x-100.jpg');
-    border-image-slice: 280;
+    border-image-source: url('assets/geral/estampa-tile.png');
+    border-image-slice: 100;
     border-image-repeat: round;
     box-shadow: 0 20px 50px rgba(30, 24, 12, 0.1);
   }
@@ -243,18 +248,60 @@
     line-height: 1.7;
   }
 
-  .programacao-days {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-4);
+  .programacao-timeline {
     margin-bottom: var(--space-4);
-  }
-  @media (min-width: 520px) {
-    .programacao-days { grid-template-columns: repeat(2, 1fr); }
   }
 
   .programacao-day { margin-bottom: var(--space-4); }
-  .programacao-day:last-of-type { margin-bottom: 0; }
+  .programacao-day:last-child { margin-bottom: 0; }
+
+  /* A partir daqui, linha do tempo em ziguezague: um marco de cada lado
+     de uma linha vertical central (como na arte de referência salva). */
+  @media (min-width: 560px) {
+    .programacao-timeline {
+      position: relative;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .programacao-timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 6px;
+      bottom: 6px;
+      width: 1px;
+      background: rgba(192, 92, 49, 0.35);
+      transform: translateX(-50%);
+    }
+    .programacao-day {
+      position: relative;
+      width: calc(50% - var(--space-4));
+      margin-bottom: var(--space-6);
+    }
+    .programacao-day::after {
+      content: '';
+      position: absolute;
+      top: 6px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #c05c31;
+    }
+    .programacao-day:nth-child(odd) {
+      margin-right: auto;
+      text-align: right;
+    }
+    .programacao-day:nth-child(odd) .programacao-day-icon { margin-right: 0; margin-left: auto; }
+    .programacao-day:nth-child(odd)::after { right: calc(-1 * var(--space-4) - 4.5px); }
+    .programacao-day:nth-child(even) {
+      margin-left: auto;
+      text-align: left;
+    }
+    .programacao-day:nth-child(even) .programacao-day-icon { margin-left: 0; margin-right: auto; }
+    .programacao-day:nth-child(even)::after { left: calc(-1 * var(--space-4) - 4.5px); }
+  }
+
   .programacao-day-icon {
     width: 44px;
     height: 44px;
@@ -705,22 +752,22 @@
     max-width: 900px;
     margin: 0 auto;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: var(--space-3);
+    gap: var(--space-2);
   }
   .welcome-palm {
     display: block;
-    width: 64px;
+    width: clamp(56px, 16vw, 100px);
     height: auto;
     flex-shrink: 0;
     opacity: 0.85;
   }
   .welcome-palm--right { transform: scaleX(-1); }
   @media (min-width: 700px) {
-    .welcome-box { flex-direction: row; gap: var(--space-4); }
-    .welcome-palm { width: 90px; opacity: 1; }
+    .welcome-box { gap: var(--space-4); }
+    .welcome-palm { opacity: 1; }
   }
   .welcome-text {
     font-family: var(--font-text);
@@ -1456,9 +1503,9 @@
 <header class="site-header" id="site-header">
   <div class="container">
     <div class="lang-switch" role="group" aria-label="Selecionar idioma / Sprache wählen">
-      <button type="button" data-lang="pt-BR"><img src="assets/geral/Prancheta 3@2x.png" alt="" aria-hidden="true" class="lang-flag" /> PT-BR</button>
+      <button type="button" data-lang="pt-BR"><img src="assets/geral/bandeira-brasil.png" alt="" aria-hidden="true" class="lang-flag" /> PT-BR</button>
       <span class="lang-switch-sep" aria-hidden="true">|</span>
-      <button type="button" data-lang="de"><img src="assets/geral/Prancheta 2@2x.png" alt="" aria-hidden="true" class="lang-flag" /> DE</button>
+      <button type="button" data-lang="de"><img src="assets/geral/bandeira-alemanha.png" alt="" aria-hidden="true" class="lang-flag" /> DE</button>
     </div>
 
     <nav aria-label="Navegação principal">
@@ -1491,8 +1538,8 @@
     <li><a href="#traje" data-i18n="nav.traje">Dress Code</a></li>
   </ul>
   <div class="nav-mobile-langs" role="group" aria-label="Selecionar idioma / Sprache wählen">
-    <button type="button" data-lang="pt-BR"><span aria-hidden="true">🇧🇷</span> PT-BR</button>
-    <button type="button" data-lang="de"><span aria-hidden="true">🇩🇪</span> DE</button>
+    <button type="button" data-lang="pt-BR"><img src="assets/geral/bandeira-brasil.png" alt="" aria-hidden="true" class="lang-flag" /> PT-BR</button>
+    <button type="button" data-lang="de"><img src="assets/geral/bandeira-alemanha.png" alt="" aria-hidden="true" class="lang-flag" /> DE</button>
   </div>
 </div>
 
@@ -1555,9 +1602,9 @@
         <p class="programacao-intro" data-i18n="programacao.intro">Preparamos cada momento com muito carinho para que você aproveite essa celebração conosco desse dia tão especial!</p>
 
         <!-- EDITAR: ajustar datas e etapas conforme o roteiro final do evento (nas duas línguas, no objeto TRANSLATIONS do script) -->
-        <div class="programacao-days">
+        <div class="programacao-timeline">
           <div class="programacao-day">
-            <img src="assets/geral/Prancheta 3@2x.png" class="programacao-day-icon" alt="" aria-hidden="true" />
+            <img src="assets/geral/Prancheta 8@2x.png" class="programacao-day-icon" alt="" aria-hidden="true" />
             <h3 class="programacao-day-title" data-i18n="programacao.day1.title">Boas-vindas à Ilha</h3>
             <p class="programacao-day-date">04.01.2027</p>
             <p class="programacao-day-desc" data-i18n="programacao.day1.desc">Chegada dos convidados à Ilha de Itaparica e início das celebrações desse momento especial.</p>
@@ -1568,13 +1615,12 @@
             <p class="programacao-day-date">05.01.2027</p>
             <p class="programacao-day-desc" data-i18n-html="programacao.day2.desc">Início: 16h<br>Local: Pé na Areia<br>Rua Conceição, 1,<br>Vera Cruz, Bahia.</p>
           </div>
-        </div>
-
-        <div class="programacao-day programacao-day--solo">
-          <img src="assets/geral/Prancheta 4@2x.png" class="programacao-day-icon" alt="" aria-hidden="true" />
-          <h3 class="programacao-day-title" data-i18n="programacao.day3.title">Despedida da Ilha</h3>
-          <p class="programacao-day-date">06.01.2027</p>
-          <p class="programacao-day-desc" data-i18n="programacao.day3.desc">Encerramento das celebrações e partida da Ilha de Itaparica, levando na memória dias muito especiais.</p>
+          <div class="programacao-day">
+            <img src="assets/geral/Prancheta 4@2x.png" class="programacao-day-icon" alt="" aria-hidden="true" />
+            <h3 class="programacao-day-title" data-i18n="programacao.day3.title">Despedida da Ilha</h3>
+            <p class="programacao-day-date">06.01.2027</p>
+            <p class="programacao-day-desc" data-i18n="programacao.day3.desc">Encerramento das celebrações e partida da Ilha de Itaparica, levando na memória dias muito especiais.</p>
+          </div>
         </div>
 
         <h3 class="programacao-tips-title" data-i18n="programacao.tipsTitle">Para o grande dia!</h3>

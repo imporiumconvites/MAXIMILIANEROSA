@@ -251,52 +251,52 @@
   .programacao-day { margin-bottom: var(--space-4); }
   .programacao-day:last-child { margin-bottom: 0; }
 
-  /* A partir daqui, linha do tempo em ziguezague: um marco de cada lado
-     de uma linha vertical central (como na arte de referência salva). */
-  @media (min-width: 560px) {
-    .programacao-timeline {
-      position: relative;
-      max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .programacao-timeline::before {
-      content: '';
-      position: absolute;
-      left: 50%;
-      top: 6px;
-      bottom: 6px;
-      width: 1px;
-      background: rgba(192, 92, 49, 0.35);
-      transform: translateX(-50%);
-    }
-    .programacao-day {
-      position: relative;
-      width: calc(50% - var(--space-4));
-      margin-bottom: var(--space-6);
-    }
-    .programacao-day::after {
-      content: '';
-      position: absolute;
-      top: 6px;
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: #c05c31;
-    }
-    .programacao-day:nth-child(odd) {
-      margin-right: auto;
-      text-align: right;
-    }
-    .programacao-day:nth-child(odd) .programacao-day-icon { margin-right: 0; margin-left: auto; }
-    .programacao-day:nth-child(odd)::after { right: calc(-1 * var(--space-4) - 4.5px); }
-    .programacao-day:nth-child(even) {
-      margin-left: auto;
-      text-align: left;
-    }
-    .programacao-day:nth-child(even) .programacao-day-icon { margin-left: 0; margin-right: auto; }
-    .programacao-day:nth-child(even)::after { left: calc(-1 * var(--space-4) - 4.5px); }
+  /* Linha do tempo em ziguezague: um marco de cada lado de uma linha
+     vertical central (como na arte de referência salva). Ativo em
+     qualquer largura de tela, inclusive mobile — os espaçamentos
+     abaixo usam clamp() para se ajustar a telas pequenas. */
+  .programacao-timeline {
+    position: relative;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
   }
+  .programacao-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 6px;
+    bottom: 6px;
+    width: 1px;
+    background: rgba(192, 92, 49, 0.35);
+    transform: translateX(-50%);
+  }
+  .programacao-day {
+    position: relative;
+    width: calc(50% - clamp(10px, 4vw, var(--space-4)));
+    margin-bottom: var(--space-6);
+  }
+  .programacao-day::after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #c05c31;
+  }
+  .programacao-day:nth-child(odd) {
+    margin-right: auto;
+    text-align: right;
+  }
+  .programacao-day:nth-child(odd) .programacao-day-icon { margin-right: 0; margin-left: auto; }
+  .programacao-day:nth-child(odd)::after { right: calc(-1 * clamp(10px, 4vw, var(--space-4)) - 4.5px); }
+  .programacao-day:nth-child(even) {
+    margin-left: auto;
+    text-align: left;
+  }
+  .programacao-day:nth-child(even) .programacao-day-icon { margin-left: 0; margin-right: auto; }
+  .programacao-day:nth-child(even)::after { left: calc(-1 * clamp(10px, 4vw, var(--space-4)) - 4.5px); }
 
   .programacao-day-icon {
     width: 44px;
@@ -310,10 +310,7 @@
     color: #c05c31;
     font-size: clamp(13px, 4vw, 22px);
     line-height: 1.2;
-    white-space: nowrap;
   }
-  /* Em textos traduzidos mais longos (ex.: alemão), permite quebrar em vez de estourar a coluna */
-  html[lang="de"] .programacao-day-title { white-space: normal; }
   .programacao-day-date {
     font-family: var(--font-text);
     font-weight: 600;
@@ -721,10 +718,11 @@
   }
 
   .hero-date {
+    font-family: var(--font-text);
     font-size: 17px;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: var(--color-gold-dark);
+    color: var(--color-gold);
     margin-bottom: var(--space-2);
   }
 
@@ -922,6 +920,7 @@
     transition: opacity 1.2s;
   }
   .venue-card-media .ceremony-photo.is-active { opacity: 1; }
+  .venue-info-btn { align-self: flex-start; margin-top: 4px; }
   .venue-card-info {
     flex: 1 1 50%;
     padding: var(--space-4) var(--space-4);
@@ -1468,8 +1467,10 @@
     .lang-switch-sep { font-size: 12px; }
 
     /* Programação: descrição dos dias um pouco maior para leitura confortável */
-    .programacao-day-desc { font-size: 12px; line-height: 1.6; }
+    .programacao-day-desc { font-size: 10.5px; line-height: 1.5; }
     .programacao-card { padding: var(--space-4) var(--space-2); }
+    .programacao-day-icon { width: 32px; height: 32px; }
+    .programacao-day-date { font-size: 14px; }
 
     /* Programação: "Para o grande dia!" e dicas menores e proporcionais no celular */
     .programacao-tips-title { font-size: 14.5px; letter-spacing: 1px; margin-top: var(--space-4); }
@@ -1546,6 +1547,7 @@
     <div class="hero-content">
       <img src="assets/geral/BRASÃO@2x.png" alt="" aria-hidden="true" class="hero-brasao" />
       <h1><img src="assets/geral/ASSINATURA@2x.png" alt="Maximilian e Rosa" class="hero-assinatura" data-i18n-attr="alt:a11y.coupleNames" /></h1>
+      <p class="hero-date" style="margin-top:var(--space-1);" data-i18n="hero.date">05 de Janeiro de 2026 – Vera Cruz, BA</p>
     </div>
   </section>
 
@@ -1678,6 +1680,8 @@
               <p class="venue-info-value">16h</p>
             </div>
           </div>
+
+          <a class="btn btn-primary venue-info-btn" href="https://www.google.com/maps/search/?api=1&query=Village+Itaparica+Pe+na+Areia+Rua+Conceicao+1+Vera+Cruz+Bahia" target="_blank" rel="noopener" data-i18n="local.howToGet">Como chegar</a>
         </div>
       </div>
     </div>
@@ -1785,6 +1789,9 @@
         closeMenu: 'Fechar menu',
         coupleNames: 'Maximilian e Rosa'
       },
+      hero: {
+        date: '05 de Janeiro de 2026 – Vera Cruz, BA'
+      },
       nav: {
         home: 'Home',
         programacao: 'Programação',
@@ -1820,7 +1827,8 @@
         eyebrow: 'Local da cerimônia',
         venueLabel: 'Local da cerimônia e recepção',
         dateLabel: 'Data',
-        timeLabel: 'Horário'
+        timeLabel: 'Horário',
+        howToGet: 'Como chegar'
       },
       countdown: {
         eyebrow: 'Contagem regressiva',
@@ -1862,6 +1870,9 @@
         closeMenu: 'Menü schließen',
         coupleNames: 'Maximilian und Rosa'
       },
+      hero: {
+        date: '05. Januar 2026 – Vera Cruz, BA'
+      },
       nav: {
         home: 'Start',
         programacao: 'Ablauf',
@@ -1897,7 +1908,8 @@
         eyebrow: 'Ort der Zeremonie',
         venueLabel: 'Ort der Zeremonie und Feier',
         dateLabel: 'Datum',
-        timeLabel: 'Uhrzeit'
+        timeLabel: 'Uhrzeit',
+        howToGet: 'Route anzeigen'
       },
       countdown: {
         eyebrow: 'Countdown',

@@ -102,6 +102,9 @@
     line-height: 1.75;
     color: var(--color-ink);
     background-color: var(--color-off-white);
+    background-image: url('assets/geral/textura-tile.jpg');
+    background-repeat: repeat;
+    background-size: 700px 700px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -748,6 +751,22 @@
   /* ============================================================
      BOAS-VINDAS
      ============================================================ */
+  #boas-vindas { position: relative; overflow: hidden; }
+  .welcome-coqueiro {
+    position: absolute;
+    width: clamp(56px, 11vw, 130px);
+    height: auto;
+    opacity: 0.9;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .welcome-coqueiro--left { top: 0; left: 0; }
+  .welcome-coqueiro--right { bottom: 0; right: 0; }
+  #boas-vindas .container {
+    padding-left: clamp(70px, 13vw, 150px);
+    padding-right: clamp(70px, 13vw, 150px);
+  }
+  #boas-vindas .container { position: relative; z-index: 1; }
   .welcome-box {
     max-width: 900px;
     margin: 0 auto;
@@ -1589,6 +1608,8 @@
 
   <!-- ============ BOAS-VINDAS ============ -->
   <section class="section section--alt" id="boas-vindas">
+    <img src="assets/geral/coqueiro-esquerda.png" alt="" aria-hidden="true" class="welcome-coqueiro welcome-coqueiro--left" />
+    <img src="assets/geral/coqueiro-direita.png" alt="" aria-hidden="true" class="welcome-coqueiro welcome-coqueiro--right" />
     <div class="container">
       <div class="welcome-box reveal">
         <div class="welcome-text">

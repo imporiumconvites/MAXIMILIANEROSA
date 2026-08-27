@@ -1456,8 +1456,11 @@
     /* Dados bancários: e-mail quebra de forma limpa */
     .gift-bank p { overflow-wrap: anywhere; }
 
-    /* Capa: cobre a tela cheia no mobile também */
-    .hero { min-height: 100svh; }
+    /* Capa: no mobile, altura acompanha o conteúdo (sem sobra em branco) */
+    .hero {
+      min-height: auto;
+      padding: calc(var(--header-h) + var(--space-2)) 0 var(--space-4);
+    }
 
     /* Contagem: 4 colunas na horizontal, números menores para caber */
     .countdown-num { font-size: clamp(24px, 8.5vw, 40px); }

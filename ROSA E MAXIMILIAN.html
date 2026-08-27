@@ -1495,7 +1495,7 @@
     .lang-switch-sep { font-size: 12px; }
 
     /* Programação: descrição dos dias um pouco maior para leitura confortável */
-    .programacao-day-desc { font-size: 10.5px; line-height: 1.5; }
+    .programacao-day-desc { font-size: 11.5px; line-height: 1.55; }
     .programacao-card { padding: var(--space-4) var(--space-2); }
     .programacao-day-icon { width: 66px; height: 66px; }
     .programacao-day-date { font-size: 14px; }
@@ -1503,9 +1503,14 @@
     /* Programação: "Para o grande dia!" e dicas menores e proporcionais no celular */
     .programacao-tips-title { font-size: 14.5px; letter-spacing: 1px; margin-top: var(--space-4); }
     .programacao-tip img { width: 20px; height: 20px; }
-    .programacao-tip p { font-size: 11px; letter-spacing: 0.2px; line-height: 1.5; }
-    .programacao-cheers { font-size: 11px; }
+    .programacao-tip p { font-size: 12px; letter-spacing: 0.2px; line-height: 1.5; }
+    .programacao-cheers { font-size: 12px; }
     .programacao-cheers-icon { width: 18px; height: 18px; }
+
+    /* Boas-vindas: coqueiros um pouco menores no celular, para o texto
+       não ficar espremido numa coluna estreita demais */
+    .welcome-coqueiro { width: clamp(52px, 14vw, 78px); }
+    #boas-vindas .container { padding-left: clamp(66px, 16vw, 94px); padding-right: clamp(66px, 16vw, 94px); }
 
     /* Dress Code: empilha mulheres/homens em vez de duas colunas apertadas */
     .dresscode-illus { flex-direction: column; align-items: center; gap: var(--space-4); }

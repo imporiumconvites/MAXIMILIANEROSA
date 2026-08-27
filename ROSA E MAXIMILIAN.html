@@ -102,9 +102,9 @@
     line-height: 1.75;
     color: var(--color-ink);
     background-color: var(--color-off-white);
-    background-image: url('assets/geral/papel-algodao-tile.jpg');
-    background-repeat: repeat;
-    background-size: 700px 700px;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('assets/geral/papel-algodao-tile.jpg');
+    background-repeat: no-repeat, repeat;
+    background-size: auto, 700px 700px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -668,6 +668,13 @@
   /* ============================================================
      HERO
      ============================================================ */
+  .textured-bg {
+    background-color: var(--color-white);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('assets/geral/papel-algodao-tile.jpg');
+    background-repeat: no-repeat, repeat;
+    background-size: auto, 700px 700px;
+  }
+
   .hero {
     position: relative;
     min-height: 100vh;
@@ -675,7 +682,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: var(--color-white);
     color: var(--color-ink);
     text-align: center;
     overflow: hidden;
@@ -1576,7 +1582,7 @@
 <main id="main">
 
   <!-- ============ HOME / CAPA ============ -->
-  <section class="hero" id="home">
+  <section class="hero textured-bg" id="home">
     <div class="hero-content">
       <img src="assets/geral/BRASÃO@2x.png" alt="" aria-hidden="true" class="hero-brasao" />
       <h1><img src="assets/geral/ASSINATURA@2x.png" alt="Maximilian e Rosa" class="hero-assinatura" data-i18n-attr="alt:a11y.coupleNames" /></h1>
@@ -1612,7 +1618,7 @@
   </section>
 
   <!-- ============ BOAS-VINDAS ============ -->
-  <section class="section section--alt" id="boas-vindas">
+  <section class="section section--alt textured-bg" id="boas-vindas">
     <img src="assets/geral/coqueiro-esquerda.png" alt="" aria-hidden="true" class="welcome-coqueiro welcome-coqueiro--left" />
     <img src="assets/geral/coqueiro-direita.png" alt="" aria-hidden="true" class="welcome-coqueiro welcome-coqueiro--right" />
     <div class="container">

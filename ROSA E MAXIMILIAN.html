@@ -1147,6 +1147,76 @@
     box-sizing: border-box;
   }
 
+  /* ============================================================
+     DICAS AOS CONVIDADOS
+     ============================================================ */
+  .dicas-grid {
+    display: grid;
+    gap: var(--space-3);
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+  @media (min-width: 800px) {
+    .dicas-grid { grid-template-columns: minmax(260px, 0.8fr) 1.2fr; }
+  }
+  .dicas-grid .info-block h3 {
+    font-family: var(--font-nav);
+    font-size: clamp(17px, 2vw, 19px);
+    color: var(--color-gold-dark);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: var(--space-3);
+  }
+  .dicas-contact-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .dicas-contact-list a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    text-decoration: none;
+    transition: border-color var(--t-med), background var(--t-med);
+  }
+  .dicas-contact-list a:hover { border-color: var(--color-gold-dark); background: var(--color-off-white); }
+  .dicas-contact-name {
+    font-family: var(--font-nav);
+    font-size: 15px;
+    color: var(--color-ink);
+  }
+  .dicas-contact-phone {
+    font-family: var(--font-text);
+    font-size: 14px;
+    color: var(--color-gold-dark);
+    white-space: nowrap;
+  }
+  .dicas-lodging-btn {
+    display: inline-block;
+    margin-bottom: var(--space-3);
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  .dicas-grid .info-block p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: var(--space-2);
+  }
+  .dicas-important {
+    background: var(--color-off-white);
+    border-left: 3px solid var(--color-gold-dark);
+    padding: var(--space-2) var(--space-3);
+    font-style: italic;
+  }
+
   .info-grid {
     display: grid;
     gap: var(--space-3);
@@ -1558,6 +1628,7 @@
         <li><a href="#programacao" data-i18n="nav.programacao">Programação</a></li>
         <li><a href="#local" data-i18n="nav.local">Local da Cerimônia</a></li>
         <li><a href="#rsvp" data-i18n="nav.rsvp">Confirmar Presença</a></li>
+        <li><a href="#dicas" data-i18n="nav.dicas">Dicas aos Convidados</a></li>
         <li><a href="#traje" data-i18n="nav.traje">Dress Code</a></li>
       </ul>
     </nav>
@@ -1579,6 +1650,7 @@
     <li><a href="#programacao" data-i18n="nav.programacao">Programação</a></li>
     <li><a href="#local" data-i18n="nav.local">Local da Cerimônia</a></li>
     <li><a href="#rsvp" data-i18n="nav.rsvp">Confirmar Presença</a></li>
+    <li><a href="#dicas" data-i18n="nav.dicas">Dicas aos Convidados</a></li>
     <li><a href="#traje" data-i18n="nav.traje">Dress Code</a></li>
   </ul>
   <div class="nav-mobile-langs" role="group" aria-label="Selecionar idioma / Sprache wählen">
@@ -1749,6 +1821,40 @@
     </div>
   </section>
 
+  <!-- ============ DICAS AOS CONVIDADOS ============ -->
+  <section class="section section--alt textured-bg" id="dicas">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="dicas.eyebrow">Dicas aos convidados</span>
+        <h2 class="programacao-title" data-i18n="dicas.title">Dicas aos Convidados</h2>
+      </div>
+
+      <div class="dicas-grid reveal">
+        <div class="info-block">
+          <h3 data-i18n="dicas.beautyTitle">Maquiagem e Cabelo</h3>
+          <ul class="dicas-contact-list">
+            <li><a href="https://wa.me/5571991689210" target="_blank" rel="noopener"><span class="dicas-contact-name">Emily</span><span class="dicas-contact-phone">71 99 168 9210</span></a></li>
+            <li><a href="https://wa.me/5571993590889" target="_blank" rel="noopener"><span class="dicas-contact-name">Carol Leite</span><span class="dicas-contact-phone">71 99 359 0889</span></a></li>
+            <li><a href="https://wa.me/5571991591418" target="_blank" rel="noopener"><span class="dicas-contact-name">Temires Barbosa</span><span class="dicas-contact-phone">71 99 159 1418</span></a></li>
+            <li><a href="https://wa.me/5571996219869" target="_blank" rel="noopener"><span class="dicas-contact-name">Marcia</span><span class="dicas-contact-phone">71 99 621 9869</span></a></li>
+          </ul>
+        </div>
+
+        <div class="info-block">
+          <h3 data-i18n="dicas.lodgingTitle">Hospedagem em Salvador</h3>
+          <a class="btn btn-primary dicas-lodging-btn" href="https://reservas.holidaybahia.com/" target="_blank" rel="noopener" data-i18n="dicas.lodgingBtn">Apartamentos à beira-mar em Salvador</a>
+          <p data-i18n="dicas.lodgingP1">Queremos que todos aproveitem esse momento especial com conforto e tranquilidade. Por isso, temos um contato direto com a Holiday Bahia, que oferece acomodações muito bem localizadas, com excelente padrão de qualidade e diversas opções para diferentes perfis de hóspedes.</p>
+          <p data-i18n="dicas.lodgingP2">Além da hospedagem, a Holiday Bahia também disponibiliza passeios e experiências turísticas na região, uma ótima oportunidade para conhecer ainda mais as belezas da Bahia durante a sua estadia.</p>
+          <p data-i18n="dicas.lodgingP3">Dependendo da quantidade de hóspedes interessados, poderemos negociar condições e tarifas especiais para o nosso grupo.</p>
+          <p class="dicas-important" data-i18n="dicas.lodgingImportant">Importante: mesmo que o site indique indisponibilidade para algumas datas, ainda existem acomodações disponíveis através do nosso contato direto. Por isso, pedimos que não façam a reserva por conta própria antes de falar conosco.</p>
+          <p data-i18n="dicas.lodgingP4">Se você gostaria de se hospedar pela Holiday Bahia, entre em contato conosco o quanto antes para que possamos verificar a demanda e buscar as melhores condições possíveis para todos.</p>
+          <p data-i18n="dicas.lodgingP5">Você pode conhecer as opções de hospedagem através do site da Holiday Bahia. Estamos à disposição para esclarecer qualquer dúvida e ajudar no que for necessário.</p>
+          <p data-i18n-html="dicas.closing"><em>Aguardamos o seu contato!</em></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ DRESS CODE ============ -->
   <section class="section" id="traje">
     <div class="container">
@@ -1843,6 +1949,7 @@
         programacao: 'Programação',
         local: 'Local da Cerimônia',
         rsvp: 'Confirmar Presença',
+        dicas: 'Dicas aos Convidados',
         traje: 'Dress Code'
       },
       welcome: {
@@ -1888,6 +1995,20 @@
         lede2: 'Por isso, pedimos que confirme sua participação. Será uma alegria celebrar esse dia ao seu lado!',
         button: 'Confirmar presença'
       },
+      dicas: {
+        eyebrow: 'Dicas aos convidados',
+        title: 'Dicas aos Convidados',
+        beautyTitle: 'Maquiagem e Cabelo',
+        lodgingTitle: 'Hospedagem em Salvador',
+        lodgingBtn: 'Apartamentos à beira-mar em Salvador',
+        lodgingP1: 'Queremos que todos aproveitem esse momento especial com conforto e tranquilidade. Por isso, temos um contato direto com a Holiday Bahia, que oferece acomodações muito bem localizadas, com excelente padrão de qualidade e diversas opções para diferentes perfis de hóspedes.',
+        lodgingP2: 'Além da hospedagem, a Holiday Bahia também disponibiliza passeios e experiências turísticas na região, uma ótima oportunidade para conhecer ainda mais as belezas da Bahia durante a sua estadia.',
+        lodgingP3: 'Dependendo da quantidade de hóspedes interessados, poderemos negociar condições e tarifas especiais para o nosso grupo.',
+        lodgingImportant: 'Importante: mesmo que o site indique indisponibilidade para algumas datas, ainda existem acomodações disponíveis através do nosso contato direto. Por isso, pedimos que não façam a reserva por conta própria antes de falar conosco.',
+        lodgingP4: 'Se você gostaria de se hospedar pela Holiday Bahia, entre em contato conosco o quanto antes para que possamos verificar a demanda e buscar as melhores condições possíveis para todos.',
+        lodgingP5: 'Você pode conhecer as opções de hospedagem através do site da Holiday Bahia. Estamos à disposição para esclarecer qualquer dúvida e ajudar no que for necessário.',
+        closing: '<em>Aguardamos o seu contato!</em>'
+      },
       traje: {
         eyebrow: 'Traje',
         title: 'Dress Code',
@@ -1923,6 +2044,7 @@
         programacao: 'Ablauf',
         local: 'Ort der Zeremonie',
         rsvp: 'Zusage',
+        dicas: 'Tipps für Gäste',
         traje: 'Dresscode'
       },
       welcome: {
@@ -1967,6 +2089,20 @@
         lede1: 'Eure Anwesenheit macht diesen Moment für uns noch besonderer.',
         lede2: 'Bitte bestätigt daher eure Teilnahme. Wir würden uns sehr freuen, diesen Tag an eurer Seite zu feiern!',
         button: 'Teilnahme bestätigen'
+      },
+      dicas: {
+        eyebrow: 'Tipps für die Gäste',
+        title: 'Tipps für die Gäste',
+        beautyTitle: 'Make-up und Frisur',
+        lodgingTitle: 'Unterkunft in Salvador',
+        lodgingBtn: 'Apartments am Meer in Salvador',
+        lodgingP1: 'Wir möchten, dass alle diesen besonderen Moment in Ruhe und Komfort genießen können. Deshalb haben wir einen direkten Kontakt zu Holiday Bahia, die sehr gut gelegene Unterkünfte mit hervorragender Qualität und verschiedenen Optionen für unterschiedliche Gästeprofile anbieten.',
+        lodgingP2: 'Neben der Unterkunft bietet Holiday Bahia auch Ausflüge und touristische Erlebnisse in der Region an — eine großartige Gelegenheit, die Schönheit Bahias während eures Aufenthalts noch besser kennenzulernen.',
+        lodgingP3: 'Je nach Anzahl der interessierten Gäste können wir besondere Konditionen und Tarife für unsere Gruppe aushandeln.',
+        lodgingImportant: 'Wichtig: Auch wenn die Website für bestimmte Termine keine Verfügbarkeit anzeigt, gibt es über unseren direkten Kontakt weiterhin Unterkunftsmöglichkeiten. Bitte bucht daher nicht auf eigene Faust, bevor ihr mit uns gesprochen habt.',
+        lodgingP4: 'Wenn ihr bei Holiday Bahia übernachten möchtet, meldet euch bitte so bald wie möglich bei uns, damit wir die Nachfrage prüfen und die besten Konditionen für alle finden können.',
+        lodgingP5: 'Die Unterkunftsoptionen könnt ihr auf der Website von Holiday Bahia einsehen. Wir stehen euch gerne für Fragen zur Verfügung und helfen, wo immer nötig.',
+        closing: '<em>Wir freuen uns auf eure Nachricht!</em>'
       },
       traje: {
         eyebrow: 'Kleidung',

@@ -1632,6 +1632,14 @@
     /* Aquarela do local com um pouco mais de presença sem cortar */
     .venue-showcase-img { width: min(94vw, 460px); }
 
+    /* Titulos cursivos das secoes "so eyebrow" cabem em uma linha */
+    #contagem .eyebrow,
+    #rsvp .eyebrow,
+    #local .eyebrow {
+      font-size: clamp(24px, 8vw, 34px);
+      white-space: nowrap;
+    }
+
     /* Dados bancários: e-mail quebra de forma limpa */
     .gift-bank p { overflow-wrap: anywhere; }
 

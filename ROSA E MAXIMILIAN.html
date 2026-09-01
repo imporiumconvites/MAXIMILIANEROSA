@@ -1159,6 +1159,19 @@
   @media (min-width: 800px) {
     .dicas-grid { grid-template-columns: minmax(260px, 0.8fr) 1.2fr; }
   }
+  .dicas-grid--single {
+    grid-template-columns: 1fr;
+    max-width: 640px;
+    margin-inline: auto;
+  }
+  @media (min-width: 800px) {
+    .dicas-grid--single { grid-template-columns: 1fr; }
+  }
+
+  /* Secao Dicas aos Convidados com fundo laranja */
+  #dicas { background-color: #c05c31; }
+  #dicas .programacao-title { color: var(--color-white); }
+  #dicas .info-block { background: var(--color-white); }
   .dicas-grid .info-block h3 {
     font-family: var(--font-nav);
     font-size: clamp(17px, 2vw, 19px);
@@ -1883,13 +1896,13 @@
   </section>
 
   <!-- ============ DICAS AOS CONVIDADOS ============ -->
-  <section class="section section--alt textured-bg" id="dicas">
+  <section class="section" id="dicas">
     <div class="container">
       <div class="section-head reveal">
         <h2 class="programacao-title" data-i18n="dicas.title">Dicas aos Convidados</h2>
       </div>
 
-      <div class="dicas-grid reveal">
+      <div class="dicas-grid dicas-grid--single reveal">
         <div class="info-block">
           <h3 data-i18n="dicas.beautyTitle">Maquiagem e Cabelo</h3>
           <p class="dicas-beauty-intro" data-i18n="dicas.beautyIntro">Separamos com carinho uma lista de profissionais de beleza de confiança para que você possa chegar ainda mais radiante no nosso grande dia.</p>
@@ -1912,7 +1925,14 @@
             </a></li>
           </ul>
         </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- ============ HOSPEDAGEM EM SALVADOR ============ -->
+  <section class="section section--alt textured-bg" id="hospedagem">
+    <div class="container">
+      <div class="dicas-grid dicas-grid--single reveal">
         <div class="info-block">
           <h3 class="dicas-lodging-title" data-i18n="dicas.lodgingTitle">Hospedagem em Salvador</h3>
           <a class="btn btn-primary dicas-lodging-btn" href="https://reservas.holidaybahia.com/" target="_blank" rel="noopener" data-i18n="dicas.lodgingBtn">Apartamentos à beira-mar em Salvador</a>

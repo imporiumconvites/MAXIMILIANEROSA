@@ -102,9 +102,6 @@
     line-height: 1.75;
     color: var(--color-ink);
     background-color: var(--color-off-white);
-    background-image: linear-gradient(rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08)), url('assets/geral/papel-algodao-tile.jpg');
-    background-repeat: no-repeat, repeat;
-    background-size: auto, 700px 700px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -209,9 +206,6 @@
 
   .section--alt {
     background-color: var(--color-white);
-    background-image: linear-gradient(rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08)), url('assets/geral/papel-algodao-tile.jpg');
-    background-repeat: no-repeat, repeat;
-    background-size: auto, 700px 700px;
   }
 
   #programacao {
@@ -675,9 +669,6 @@
      ============================================================ */
   .textured-bg {
     background-color: var(--color-white);
-    background-image: linear-gradient(rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08)), url('assets/geral/papel-algodao-tile.jpg');
-    background-repeat: no-repeat, repeat;
-    background-size: auto, 700px 700px;
   }
 
   .hero {
@@ -825,6 +816,21 @@
 
   #contagem { background-color: #c05c31; }
   #contagem .eyebrow { color: var(--color-white); }
+
+  /* Titulos de secoes sem h2 proprio ganham a mesma fonte cursiva
+     dos titulos grandes (Programacao, Dress Code, etc.) */
+  #contagem .eyebrow,
+  #rsvp .eyebrow,
+  #local .eyebrow {
+    font-family: 'Aston Script Bold', var(--font-display);
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: normal;
+    font-size: clamp(30px, 6.5vw, 44px);
+    line-height: 1.3;
+    padding-top: 0.2em;
+    margin-bottom: 0;
+  }
 
   .countdown-cell {
     text-align: center;
@@ -1534,9 +1540,6 @@
      ============================================================ */
   .site-footer {
     background-color: var(--color-white);
-    background-image: linear-gradient(rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08)), url('assets/geral/papel-algodao-tile.jpg');
-    background-repeat: no-repeat, repeat;
-    background-size: auto, 700px 700px;
     border-top: 1px solid var(--color-line);
     padding: var(--space-6) 0 var(--space-4);
     text-align: center;
@@ -2073,21 +2076,21 @@
         cheers: 'E divirta-se muito!!!'
       },
       local: {
-        eyebrow: 'Local da cerimônia',
+        eyebrow: 'Local da Cerimônia',
         venueLabel: 'Local da cerimônia e recepção',
         dateLabel: 'Data',
         timeLabel: 'Horário',
         howToGet: 'Como chegar'
       },
       countdown: {
-        eyebrow: 'Contagem regressiva',
+        eyebrow: 'Contagem Regressiva',
         days: 'Dias',
         hours: 'Horas',
         minutes: 'Minutos',
         seconds: 'Segundos'
       },
       rsvp: {
-        eyebrow: 'Confirmação de presença',
+        eyebrow: 'Confirmação de Presença',
         lede1: 'Sua presença tornará este momento ainda mais especial para nós.',
         lede2: 'Por isso, pedimos que confirme sua participação. Será uma alegria celebrar esse dia ao seu lado!',
         button: 'Confirmar presença'
